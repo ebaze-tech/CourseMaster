@@ -8,7 +8,7 @@ import TestDetails from "./Admin/TestDetails";
 import "./App.css";
 import AdminLoginForm from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
-import PrivateRoute from "./Admin/PrivateRoute";
+// import PrivateRoute from "./Admin/PrivateRoute";
 import AdminRegisterForm from "./Admin/AdminRegiser";
 import { Navigate } from "react-router-dom";
 
