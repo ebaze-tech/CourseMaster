@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+  <script>
+    // Function to apply restrictions
+    function applyRestrictions() {
+      // Disable right-click
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+
+      // Disable copying text
+      document.addEventListener("copy", (event) => {
+        event.clipboardData.setData("text/plain", ""); // Disable copying text
+        event.preventDefault();
+      });
+
+      // Disable F12 (Inspect) and Ctrl+Shift+I
+      document.onkeydown = function (e) {
+        if (
+          e.keyCode === 123 ||
+          (e.ctrlKey && e.shiftKey && e.keyCode === 73)
+        ) {
+          e.preventDefault(); // Disable F12 and Ctrl+Shift+I
+        }
+      };
+    }
+
+    // Check if the page has the specific ID or class
+    if (document.body.id === "test-page") {
+      applyRestrictions();
+    }
+  </script>
+</html>
