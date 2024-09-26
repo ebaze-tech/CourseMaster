@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useParams } from "react-router-dom";
-import API from "../api"; // Assuming you have an Axios instance
+import API from "../api";
 
 const TestDetails = () => {
   const { id } = useParams();
   const [test, setTest] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -13,81 +24,79 @@ const TestDetails = () => {
         const { data } = await API.get(`/test/submitted/${id}`);
         setTest(data);
       } catch (error) {
+        console.error("Error fetching test details:", error);
         setError(
           error.response?.data?.message || "Error fetching test details"
         );
+      } finally {
+        setLoading(false); // Ensure loading is stopped even after an error
       }
     };
 
     fetchTest();
   }, [id]);
 
+  if (loading) return <CircularProgress />;
+
   return (
-    <div>
-      <h1>Test Details</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <Container maxWidth="md" style={{ marginTop: "20px" }}>
+      <Typography variant="h4" gutterBottom>
+        Test Details
+      </Typography>
+
+      {error && <Alert severity="error">{error}</Alert>}
+
       {test && (
         <div>
-          <h2>Test ID {test._id}</h2>
-          <p>
-            <strong>Category</strong> {test.category}
-          </p>
-          <p>
-            <strong>Submitted At</strong>{" "}
-            {new Date(test.submittedAt).toLocaleString()}
-          </p>
+          <Typography variant="h6">
+            Test: {test.testName || "Unnamed Test"} (ID: {test._id})
+          </Typography>
+          <Typography>
+            Submitted At: {new Date(test.submittedAt).toLocaleString()}
+          </Typography>
 
-          <h3>User Details</h3>
-          <p>
-            <strong>User ID</strong> {test.userId._id}
-          </p>
-          <p>
-            <strong>Username</strong> {test.userId.username}
-          </p>
-          <p>
-            <strong>Email</strong> {test.userId.email}
-          </p>
+          <Typography variant="h6" gutterBottom style={{ marginTop: "20px" }}>
+            Answers
+          </Typography>
 
-          <h3>Answers</h3>
-          <ul>
-            {test.answers.map((answer) => (
-              <li key={answer._id}>
-                <p>
-                  <strong>Answer ID</strong> {answer._id}
-                </p>
-                <p>
-                  <strong>Question ID</strong> {answer.questionId._id}
-                </p>
-                <p>
-                  <strong>Answer</strong> {answer.answer}
-                </p>
-
-                <h4>Question Details</h4>
-                <p>
-                  <strong>Category</strong> {answer.questionId.category}
-                </p>
-                <p>
-                  <strong>Question Text</strong>{" "}
-                  {answer.questionId.questionText}
-                </p>
-                <p>
-                  <strong>Possible Answers</strong>
-                </p>
-                <ul>
-                  {answer.questionId.answers.map((option, index) => (
-                    <li key={index}>{option}</li>
-                  ))}
-                </ul>
-                <p>
-                  <strong>Correct Answer</strong>{" "}
-                  {answer.questionId.correctAnswer}
-                </p>
-              </li>
-            ))}
-          </ul>
+          {test.answers.map((answer) => (
+            <Accordion key={answer._id}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography>
+                  Question:{" "}
+                  {answer.questionId?.questionText ||
+                    "Question text unavailable"}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Answer: {answer.answer || "No answer provided"}
+                </Typography>
+                <Typography>
+                  Correct Answer:{" "}
+                  {answer.correctAnswer || "No correct answer provided"}
+                </Typography>
+                <Typography>
+                  Category: {answer.category || "No category provided"}
+                </Typography>
+                {answer.questionId &&
+                  Array.isArray(answer.options) &&
+                  answer.options.length > 0 && (
+                    <>
+                      <Typography>Possible Answers:</Typography>
+                      <ul>
+                        {answer.options.map((option, index) => (
+                          <li key={index}>{option}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+              </AccordionDetails>
+            </Accordion>
+          ))}
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

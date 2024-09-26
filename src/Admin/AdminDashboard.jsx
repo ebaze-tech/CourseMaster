@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Container,
   Typography,
-  Box,
   Grid2,
   Card,
   CardContent,
@@ -21,8 +20,9 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import API from "../api"; // Import the Axios instance
+import API from "../api";
 import { Link } from "react-router-dom";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -118,7 +118,9 @@ const AdminDashboard = () => {
               {topScores.length > 0 ? (
                 <Bar
                   data={{
-                    labels: topScores.map((score) => score.userId.username),
+                    labels: topScores.map((score) =>
+                      score.userId ? score.userId.username : "Unknown User"
+                    ),
                     datasets: [
                       {
                         label: "Scores",
@@ -168,13 +170,21 @@ const AdminDashboard = () => {
             variant="contained"
             color="primary"
             sx={{ mt: 3, mb: 2 }}
+            component={Link}
+            to="/tests"
           >
-            <Link
-              to="/tests" // Adjust the path for admin registration if needed
-              style={{ textDecoration: "none", color: "blue" }}
-            >
-              Test Results
-            </Link>
+            Test Results
+          </Button>{" "}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3, mb: 2 }}
+            component={Link}
+            to="/leaderboard"
+          >
+            View Leaderboard
           </Button>
         </Grid2>
       </Grid2>
