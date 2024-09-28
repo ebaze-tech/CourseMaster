@@ -23,7 +23,7 @@ const LoginForm = () => {
       const { data } = await API.post("/auth/login", { email, password });
       console.log("Login successful, token:", data.token);
       localStorage.setItem("token", data.token);
-      navigate("/test");
+      navigate("/test/category");
     } catch (error) {
       console.error("Login error:", error);
       setError(error.response?.data?.message || "Invalid email or password");

@@ -1,100 +1,177 @@
 import React, { useState } from "react";
 import {
-  TextField,
-  Button,
   Container,
   Typography,
+  TextField,
+  Button,
+  Paper,
+  Snackbar,
   Box,
-  Grid2,
+  InputAdornment,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import API from "../api"; // Import the Axios instance
+import { motion } from "framer-motion";
+import API from "../api";
+import Alert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import LockIcon from "@mui/icons-material/Lock";
 
 const AdminLoginForm = () => {
-  const [adminNumber, setAdminNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    adminNumber: "",
+    password: "",
+  });
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Submitting admin login with:", { adminNumber, password });
-      const { data } = await API.post("/auth/admin/login", {
-        adminNumber,
-        password,
+      const response = await API.post("/auth/admin/login", formData);
+      localStorage.setItem("token", response.data.token);
+      navigate("/admin/dashboard");
+      setSnackbar({
+        open: true,
+        message: "Login successful!",
+        severity: "success",
       });
-      console.log("Login successful, token:", data.token);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("token", data.token);
-      navigate("/admin/dashboard"); // Adjust the navigation path as needed
     } catch (error) {
-      console.error("Login error:", error);
-      setError(
-        error.response?.data?.message || "Invalid admin number or password"
-      );
+      setSnackbar({
+        open: true,
+        message: error.response
+          ? error.response.data.message
+          : "Login failed. Please check your credentials.",
+        severity: "error",
+      });
     }
   };
 
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
   return (
-    <Container maxWidth="xs" style={{ marginTop: "100px" }}>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Admin Login
-        </Typography>
-
-        <TextField
-          label="Admin Number"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          value={adminNumber}
-          onChange={(e) => setAdminNumber(e.target.value)}
-        />
-
-        <TextField
-          label="Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
-            {error}
-          </Typography>
-        )}
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3, mb: 2 }}
+    <Container
+      maxWidth="lg"
+      sx={{
+        width: "90vw",
+        height: "50vh",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign:"center",
+        
+      }}
+    >
+      <Paper elevation={4} sx={{ padding: 4, borderRadius: 3 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          Sign In
-        </Button>
+          <Typography
+            variant="h4"
+            gutterBottom
+            align="center"
+            color="primary"
+            sx={{ fontWeight: "bold" }}
+          >
+            Admin Login
+          </Typography>
 
-        {/* <Grid2 container justifyContent="center">
-          <Grid2 item>
-            <Link
-              to="/admin/register" // Adjust the path for admin registration if needed
-              style={{ textDecoration: "none", color: "blue" }}
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            sx={{ mb: 3 }}
+          >
+            Please login with your admin credentials.
+          </Typography>
+
+          <form onSubmit={handleSubmit}>
+            <Box mb={4}>
+              <TextField
+                label="Admin Number"
+                name="adminNumber"
+                fullWidth
+                value={formData.adminNumber}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+                slotProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Box>
+
+            <Box mb={2}>
+              <TextField
+                label="Password"
+                name="password"
+                type="password"
+                fullWidth
+                value={formData.password}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+                slotProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Box>
+
+            {/* <Box display="flex" justifyContent="flex-end" mb={2}>
+              <Link href="#" underline="hover" color="secondary">
+                Forgot password?
+              </Link>
+            </Box> */}
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{
+                padding: "10px",
+                backgroundColor: "secondary.main",
+                ":hover": { backgroundColor: "secondary.dark" },
+              }}
             >
-              Don't have an admin account? Sign up
-            </Link>
-          </Grid2>
-        </Grid2> */}
-      </Box>
+              Login Admin
+            </Button>
+          </form>
+        </motion.div>
+      </Paper>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }} // Adjusted position
+      >
+        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };

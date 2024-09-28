@@ -15,6 +15,8 @@ import AdminLoginForm from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
 import AdminRegisterForm from "./Admin/AdminRegister";
 import Leaderboard from "./TestUsers/Leaderboard";
+import AdminTestUpload from "./Admin/AdminTestUpload";
+import TestForm from "./TestUsers/TestPage";
 
 function App() {
   return (
@@ -22,14 +24,16 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
-        <Route path="/test" element={<CategorySelection />} />
-        <Route path="/tests" element={<SubmittedTests />} />
-        <Route path="/tests/:id" element={<TestDetails />} />
+        <Route path="/test/category" element={<CategorySelection />} />
+        <Route path="/test/new" element={<TestForm />} />
+        <Route path="/admin/tests" element={<SubmittedTests />} />
+        <Route path="/admin/tests/:id" element={<TestDetails />} />
         <Route path="/login/admin" element={<AdminLoginForm />} />
         <Route path="/register/admin" element={<AdminRegisterForm />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />{" "}
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="*" element={<Navigate to="/login" />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />{" "}
+        <Route path="/admin/leaderboard" element={<Leaderboard />} />
+        <Route path="/admin/test/upload" element={<AdminTestUpload />} />
       </Routes>
     </Router>
   );

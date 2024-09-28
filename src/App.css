@@ -41,16 +41,32 @@
   color: #888;
 }
 body {
-  background: linear-gradient(to right, #6a11cb, #2575fc); /* Purple to Blue Gradient */
-  min-height: 100vh;
+  background: linear-gradient(
+    to right,
+    #6a11cb,
+    #2575fc
+  ); /* Purple to Blue Gradient */
+  background-size: cover;
+  height: screen;
+  width: screen;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: screen;
+  width: screen;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .MuiContainer-root {
-  background-color: white;
+  background-color: inherit;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

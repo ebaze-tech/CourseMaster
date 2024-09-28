@@ -1,119 +1,180 @@
 import React, { useState } from "react";
 import {
-  TextField,
-  Button,
   Container,
   Typography,
+  TextField,
+  Button,
+  Paper,
+  Snackbar,
   Box,
-  Grid2,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import API from "../api"; // Import the Axios instance
+import { motion } from "framer-motion";
+import API from "../api";
+import Alert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
 
 const AdminRegisterForm = () => {
-  const [adminNumber, setAdminNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+  });
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
   const navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
     try {
-      await API.post("/auth/admin/register", { adminNumber, email, password });
-      navigate("/login/admin"); // Redirect to admin login after registration
+      await API.post("/auth/admin/register", formData);
+      navigate("/login/admin");
+      setSnackbar({
+        open: true,
+        message: "Admin registered successfully!",
+        severity: "success",
+      });
+      setFormData({
+        fullName: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+      });
     } catch (error) {
-      setError(error.response?.data?.message || "Registration failed");
+      setSnackbar({
+        open: true,
+        message: "Registration failed. Please try again.",
+        severity: "error",
+      });
     }
   };
 
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
   return (
-    <Container maxWidth="xs" style={{ marginTop: "100px" }}>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Register Admin
-        </Typography>
-
-        <TextField
-          label="Admin Number"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          value={adminNumber}
-          onChange={(e) => setAdminNumber(e.target.value)}
-        />
-
-        <TextField
-          label="Email"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <TextField
-          label="Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <TextField
-          label="Confirm Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
-            {error}
-          </Typography>
-        )}
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3, mb: 2 }}
+    <Container
+      maxWidth="lg"
+      sx={{
+        width: "90vw",
+        height: "50vh",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Paper elevation={4} sx={{ padding: 4, borderRadius: 3 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          Register Admin
-        </Button>
+          <Typography
+            variant="h4"
+            gutterBottom
+            align="center"
+            color="primary"
+            sx={{ fontWeight: "bold" }}
+          >
+            Admin Registration
+          </Typography>
 
-        <Grid2 container justifyContent="center">
-          <Grid2 item>
-            <Link
-              to="/admin/login"
-              style={{ textDecoration: "none", color: "blue" }}
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            sx={{ mb: 3 }}
+          >
+            Register a new admin by filling out the form below.
+          </Typography>
+
+          <form onSubmit={handleSubmit}>
+            <Box mb={2}>
+              <TextField
+                label="Full Name"
+                name="fullName"
+                fullWidth
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+              />
+            </Box>
+            <Box mb={2}>
+              <TextField
+                label="Email"
+                name="email"
+                type="email"
+                fullWidth
+                value={formData.email}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+              />
+            </Box>
+            <Box mb={2}>
+              <TextField
+                label="Password"
+                name="password"
+                type="password"
+                fullWidth
+                value={formData.password}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+              />
+            </Box>
+            <Box mb={3}>
+              <TextField
+                label="Phone Number"
+                name="phoneNumber"
+                fullWidth
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                required
+                variant="outlined"
+                size="small"
+              />
+            </Box>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{
+                padding: "10px",
+                backgroundColor: "secondary.main",
+                ":hover": { backgroundColor: "secondary.dark" },
+              }}
             >
-              Already an admin? Sign in
-            </Link>
-          </Grid2>
-        </Grid2>
-      </Box>
+              Register Admin
+            </Button>
+          </form>
+        </motion.div>
+      </Paper>
+
+      {/* Snackbar for success or error message */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };
