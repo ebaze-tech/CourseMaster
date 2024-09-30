@@ -20,7 +20,7 @@ const HomePage = () => {
     >
       <Container
         maxWidth="md"
-        sx={{ textAlign: "center", color: "black", marginTop: "5rem" }}
+        sx={{ textAlign: "center", color: "black", marginTop: "10rem" }}
       >
         {/* Animated Introduction Text */}
         <motion.div
