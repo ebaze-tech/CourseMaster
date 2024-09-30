@@ -32,7 +32,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
-            marginTop={15}
+            marginTop={30}
             gutterBottom
           >
             Welcome to Test Platform
