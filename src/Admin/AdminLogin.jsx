@@ -68,8 +68,7 @@ const AdminLoginForm = () => {
         // height: "50vh",
         alignItems: "center",
         justifyContent: "center",
-        textAlign:"center",
-        
+        textAlign: "center",
       }}
     >
       <Paper elevation={10} sx={{ padding: 0, borderRadius: 3 }}>
@@ -92,7 +91,7 @@ const AdminLoginForm = () => {
             variant="subtitle1"
             align="center"
             color="textSecondary"
-            sx={{ mb: 3 ,ontSize: "2rem"}}
+            sx={{ mb: 3, ontSize: "2rem" }}
           >
             Please login with your admin credentials.
           </Typography>
