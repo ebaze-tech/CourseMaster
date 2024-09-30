@@ -29,7 +29,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
-            marginTop="2.5rem"
+            marginTop="6rem"
             gutterBottom
           >
             Welcome to Test Platform
@@ -51,7 +51,13 @@ const HomePage = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <Box mt={4}>
+          <Box
+            mt={4}
+            gap={5}
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+          >
             <Button
               variant="contained"
               color="black"
@@ -81,7 +87,6 @@ const HomePage = () => {
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginTop:"0.5rem"
               }}
             >
               Register
