@@ -10,19 +10,19 @@ import LoginForm from "./TestUsers/LoginPage";
 import RegisterForm from "./TestUsers/RegisterForm";
 import CategorySelection from "./TestUsers/CategorySelection";
 import SubmittedTests from "./TestUsers/SubmittedTests";
-import AdminTestView from "./TestUsers/Admin/SubmittedTests";
-import TestDetails from "./TestUsers/Admin/TestDetails";
+import AdminTestView from "./TestUsers/AdminSubmittedTests";
+import TestDetails from "./TestUsers/AdminTestDetails";
 import "./App.css";
-import AdminLoginForm from "./TestUsers/Admin/AdminLogin";
-import AdminDashboard from "./TestUsers/Admin/AdminDashboard";
-import AdminRegisterForm from "./TestUsers/Admin/AdminRegister";
+import AdminLoginForm from "./TestUsers/AdminLogin";
+import AdminDashboard from "./TestUsers/AdminDashboard";
+import AdminRegisterForm from "./TestUsers/AdminRegister";
 import Leaderboard from "./TestUsers/Leaderboard";
-import AdminTestUpload from "./TestUsers/Admin/AdminTestUpload";
+import AdminTestUpload from "./TestUsers/AdminTestUpload";
 import TestForm from "./TestUsers/TestPage";
 import UserDashboard from "./TestUsers/Userdashboard";
 import Homepage from "./TestUsers/Homepage";
 import ViewTest from "./TestUsers/ViewTest";
-import AdminHomePage from "./TestUsers/Admin/Homepage";
+import AdminHomePage from "./TestUsers/AdminHomepage";
 
 function App() {
   return (
