@@ -75,12 +75,13 @@ const HomePage = () => {
               size="large"
               onClick={() => navigate("/register")}
               sx={{
-                padding: "10px 20px",
+                padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
+                marginTop:"2rem"
               }}
             >
               Register
