@@ -18,10 +18,7 @@ const HomePage = () => {
         color: "black",
       }}
     >
-      <Container
-        maxWidth="md"
-        sx={{ textAlign: "center", color: "black", marginTop: "10rem" }}
-      >
+      <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
         {/* Animated Introduction Text */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
