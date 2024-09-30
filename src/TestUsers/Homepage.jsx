@@ -30,7 +30,7 @@ const HomePage = () => {
             color="black"
             fontWeight="bold"
             fontSize="2.5rem"
-            marginTop={30}
+            // marginTop={30}
             gutterBottom
           >
             Welcome to the University of Ibadan Test Platform
