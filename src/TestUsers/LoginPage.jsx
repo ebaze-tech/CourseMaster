@@ -70,7 +70,7 @@ const LoginForm = () => {
             variant="subtitle1"
             align="center"
             color="textSecondary"
-            sx={{ mb: 3, fontSize: "2rem" }}
+            sx={{ mb: 3 }}
           >
             Login to your account
           </Typography>
