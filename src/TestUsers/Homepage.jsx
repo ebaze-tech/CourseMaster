@@ -29,7 +29,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
-            marginTop="6rem"
+            marginTop="10rem"
             gutterBottom
           >
             Welcome to Test Platform
@@ -53,9 +53,9 @@ const HomePage = () => {
         >
           <Box
             mt={4}
-            gap={5}
+            justifyContent="space-between"
             alignItems="center"
-            justifyContent="center"
+            justifyItems="center"
             textAlign="center"
           >
             <Button
