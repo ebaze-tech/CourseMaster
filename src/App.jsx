@@ -21,6 +21,7 @@ import TestForm from "./TestUsers/TestPage";
 import UserDashboard from "./TestUsers/Userdashboard";
 import Homepage from "./TestUsers/Homepage";
 import ViewTest from "./TestUsers/ViewTest";
+import AdminHomePage from "./Admin/Homepage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/user/test/result/all" element={<SubmittedTests />} />
         <Route path="/user/test/result/:id" element={<ViewTest />} />
         <Route path="/" element={<Homepage />} />
+        <Route path="/admin" element={<AdminHomePage />} />
       </Routes>
     </Router>
   );

@@ -59,8 +59,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   /* height: screen;
-  width: screen;
-  overflow: hidden; */
+  /* width: screen; */
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
