@@ -115,7 +115,8 @@ const HomePage = () => {
               borderRadius: "15px",
               textAlign: "center",
               marginTop: "3rem",
-              justifyContent: "center",
+              // justifyContent: "center",
+              verticalAlign: "center",
               alignItems: "center",
             }}
           >
