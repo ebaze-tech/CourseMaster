@@ -18,7 +18,7 @@ body {
   box-sizing: border-box;
   /* height: screen;
   /* width: screen; */
-  overflow: hidden;
+  /* overflow: hidden; */
   align-items: center;
   justify-content: center;
 }
