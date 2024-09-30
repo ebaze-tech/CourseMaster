@@ -92,7 +92,6 @@ const HomePage = () => {
             elevation={3}
             sx={{
               padding: "30px",
-              marginTop: "50px",
               backgroundColor: "#fff",
               borderRadius: "15px",
               textAlign: "left",
