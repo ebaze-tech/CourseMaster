@@ -32,6 +32,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
+            fontSize="2.5rem"
             marginTop={30}
             gutterBottom
           >
