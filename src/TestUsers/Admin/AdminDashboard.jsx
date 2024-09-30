@@ -21,7 +21,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import API from "../api";
+import API from "../../api";
 import { Link } from "react-router-dom";
 
 ChartJS.register(

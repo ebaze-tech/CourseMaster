@@ -17,7 +17,7 @@ import {
   Paper,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import API from "../api";
+import API from "../../api";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
