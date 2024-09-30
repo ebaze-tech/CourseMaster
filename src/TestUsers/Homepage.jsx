@@ -60,7 +60,7 @@ const HomePage = () => {
             alignItems="center"
             justifyItems="center"
             textAlign="center"
-            gap={10}
+            gap={15}
           >
             <Button
               variant="contained"
