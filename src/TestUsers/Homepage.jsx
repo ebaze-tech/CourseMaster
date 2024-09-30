@@ -113,7 +113,10 @@ const HomePage = () => {
               padding: "30px",
               backgroundColor: "#fff",
               borderRadius: "15px",
-              textAlign: "left",
+              textAlign: "center",
+              marginTop: "3rem",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Typography
@@ -121,7 +124,6 @@ const HomePage = () => {
               gutterBottom
               color="primary"
               textAllign="center"
-              marginTop="3rem"
             >
               Why Choose Us?
             </Typography>
