@@ -101,19 +101,19 @@ const HomePage = () => {
             <Typography variant="h4" gutterBottom color="primary">
               Why Choose Us?
             </Typography>
-            <Typography variant="h6" prop marginBottom="1rem">
+            <Typography variant="h6" prop>
               🚀 <strong>Boost Your Knowledge:</strong> Take specialized tests
               designed by experts to sharpen your skills and knowledge.
             </Typography>
-            <Typography variant="h6" prop marginBottom="1rem">
+            <Typography variant="h6" prop>
               💼 <strong>Industry-Driven:</strong> Our tests are tailored to
               real-world scenarios to prepare you for future opportunities.
             </Typography>
-            <Typography variant="h6" prop marginBottom="1rem">
+            <Typography variant="h6" prop>
               📈 <strong>Track Your Progress:</strong> Review your past
               performances and monitor improvements over time.
             </Typography>
-            <Typography variant="h6" prop marginBottom="1rem">
+            <Typography variant="h6" prop>
               🔗 <strong>Seamless Experience:</strong> Just sign up, login, and
               paste the test link to get started with your next test!
             </Typography>
