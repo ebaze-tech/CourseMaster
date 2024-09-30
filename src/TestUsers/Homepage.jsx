@@ -25,14 +25,20 @@ const HomePage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Typography variant="h2" color="black" fontWeight="bold" gutterBottom>
+          <Typography
+            variant="h2"
+            color="black"
+            fontWeight="bold"
+            marginTop="5rem"
+            gutterBottom
+          >
             Welcome to Test Platform
           </Typography>
           <Typography
             variant="h6"
             color="black"
             fontSize="1.5rem"
-            marginTop="15px"
+            marginTop="5rem"
             gutterBottom
           >
             Take your skills to the next level with expert-designed tests
