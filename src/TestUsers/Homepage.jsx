@@ -58,8 +58,8 @@ const HomePage = () => {
               size="large"
               onClick={() => navigate("/login")}
               sx={{
-                marginRight: "20px",
-                padding: "10px 40px",
+                // marginRight: "20px",
+                padding: "10px 20px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
                 backgroundColor: "blueviolet",
@@ -81,7 +81,7 @@ const HomePage = () => {
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginTop:"1rem"
+                marginTop:"0.5rem"
               }}
             >
               Register
