@@ -9,7 +9,7 @@ const AdminHomePage = () => {
   return (
     <Box
       sx={{
-        height: "110vh",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

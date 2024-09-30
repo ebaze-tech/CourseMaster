@@ -10,7 +10,7 @@ const HomePage = () => {
     <Box
       sx={{
         // background: "linear-gradient(135deg, #3f51b5 30%, #2196f3 90%)",
-        height: "110vh",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -58,7 +58,7 @@ const HomePage = () => {
                 fontWeight: "bold",
                 backgroundColor: "blueviolet",
                 height: "4rem",
-                borderRadius:"0.8rem"
+                borderRadius: "0.8rem",
               }}
             >
               Login
@@ -74,7 +74,7 @@ const HomePage = () => {
                 fontWeight: "bold",
                 backgroundColor: "green",
                 height: "4rem",
-                borderRadius:"0.8rem"
+                borderRadius: "0.8rem",
               }}
             >
               Register
