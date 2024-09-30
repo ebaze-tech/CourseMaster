@@ -76,7 +76,7 @@ const HomePage = () => {
                 backgroundColor: "blueviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginRight:"2rem"
+                marginRight:"1rem"
               }}
             >
               Login
@@ -93,7 +93,7 @@ const HomePage = () => {
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginLeft:"2rem"
+                marginLeft:"1rem"
               }}
             >
               Register
