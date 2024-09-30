@@ -76,7 +76,7 @@ const HomePage = () => {
                 backgroundColor: "blueviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginRight:"1rem"
+                marginRight: "1rem",
               }}
             >
               Login
@@ -93,7 +93,7 @@ const HomePage = () => {
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginLeft:"1rem"
+                marginLeft: "1rem",
               }}
             >
               Register
@@ -116,7 +116,12 @@ const HomePage = () => {
               textAlign: "left",
             }}
           >
-            <Typography variant="h4" gutterBottom color="primary">
+            <Typography
+              variant="h4"
+              gutterBottom
+              color="primary"
+              textAllign="center"
+            >
               Why Choose Us?
             </Typography>
             <Typography variant="h6" prop>
