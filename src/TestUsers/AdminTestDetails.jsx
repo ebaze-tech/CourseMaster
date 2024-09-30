@@ -17,7 +17,7 @@ import { green, red, grey } from "@mui/material/colors";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useParams } from "react-router-dom";
-import API from "../../api";
+import API from "../api";
 
 const TestDetails = () => {
   const { id } = useParams();

@@ -10,7 +10,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import API from "../../api";
+import API from "../api";
 import Alert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
 import AccountCircle from "@mui/icons-material/AccountCircle";

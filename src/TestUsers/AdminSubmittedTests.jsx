@@ -15,7 +15,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import API from "../../api";
+import API from "../api";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { grey } from "@mui/material/colors";
 
