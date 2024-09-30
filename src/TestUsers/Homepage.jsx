@@ -29,7 +29,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
-            marginTop="10rem"
+            marginTop={15}
             gutterBottom
           >
             Welcome to Test Platform
@@ -65,7 +65,7 @@ const HomePage = () => {
               onClick={() => navigate("/login")}
               sx={{
                 // marginRight: "20px",
-                padding: "10px 20px",
+                padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
                 backgroundColor: "blueviolet",
