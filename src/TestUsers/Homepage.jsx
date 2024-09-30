@@ -35,7 +35,7 @@ const HomePage = () => {
             marginTop={30}
             gutterBottom
           >
-            Welcome to Test Platform
+            Welcome to the University of Ibadan Platform
           </Typography>
           <Typography
             variant="h6"
@@ -44,7 +44,7 @@ const HomePage = () => {
             marginTop="3rem"
             gutterBottom
           >
-            Take your skills to the next level with expert-designed tests
+            Proceed to your platform account
           </Typography>
         </motion.div>
 
@@ -75,6 +75,7 @@ const HomePage = () => {
                 backgroundColor: "blueviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
+                marginRight:"2rem"
               }}
             >
               Login
@@ -91,6 +92,7 @@ const HomePage = () => {
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
+                marginLeft:"2rem"
               }}
             >
               Register
