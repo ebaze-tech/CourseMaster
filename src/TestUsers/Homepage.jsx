@@ -36,7 +36,7 @@ const HomePage = () => {
             marginTop={30}
             gutterBottom
           >
-            Welcome to the University of Ibadan Platform
+            Welcome to the University of Ibadan Test Platform
           </Typography>
           <Typography
             variant="h6"
