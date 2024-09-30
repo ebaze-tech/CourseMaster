@@ -29,7 +29,7 @@ const HomePage = () => {
             variant="h2"
             color="black"
             fontWeight="bold"
-            marginTop="5rem"
+            marginTop="2.5rem"
             gutterBottom
           >
             Welcome to Test Platform
@@ -38,7 +38,7 @@ const HomePage = () => {
             variant="h6"
             color="black"
             fontSize="1.5rem"
-            marginTop="5rem"
+            marginTop="3rem"
             gutterBottom
           >
             Take your skills to the next level with expert-designed tests
@@ -75,13 +75,13 @@ const HomePage = () => {
               size="large"
               onClick={() => navigate("/register")}
               sx={{
-                padding: "10px 40px",
+                padding: "10px 20px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
                 backgroundColor: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginTop:"2rem"
+                marginTop:"1rem"
               }}
             >
               Register
