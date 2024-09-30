@@ -28,7 +28,7 @@ const TestDetails = () => {
   useEffect(() => {
     const fetchTest = async () => {
       try {
-        const { data } = await API.get(`/test/submitted/${id}`);
+        const { data } = await API.get(`/dashboard/user/test/result/${id}`);
         setTest(data);
       } catch (error) {
         console.error("Error fetching test details:", error);
@@ -72,13 +72,13 @@ const TestDetails = () => {
             }}
           >
             <Typography variant="h6" color="textPrimary" mb={2}>
-              Test: {test.caategory || "Unnamed Test"} (ID: {test._id})
+              Test: {test.testName || "Unnamed Test"} (ID: {test._id})
             </Typography>
             <Typography color="textSecondary">
               Submitted At: {new Date(test.createdAt).toLocaleString()}
             </Typography>
             <Typography color="textSecondary" mt={1}>
-              Total Score
+              Total Score:
               <Chip
                 label={test.totalScore}
                 color={

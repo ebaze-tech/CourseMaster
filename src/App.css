@@ -58,15 +58,15 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  height: screen;
+  /* height: screen;
   width: screen;
-  overflow: hidden;
+  overflow: hidden; */
   align-items: center;
   justify-content: center;
 }
 
 .MuiContainer-root {
-  background-color: inherit;
+  background-color: white;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

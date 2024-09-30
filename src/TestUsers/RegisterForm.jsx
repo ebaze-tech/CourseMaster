@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import {
-  TextField,
+  Box,
   Button,
   Container,
   Typography,
-  Box,
+  Paper,
   Grid2,
+  TextField,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api"; // Import the Axios instance
+import { motion } from "framer-motion"; // Ensure you import motion if you're using it
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
@@ -34,83 +36,132 @@ const RegisterForm = () => {
   };
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: "100px" }}>
-      <Box
+    <Container
+      maxWidth="lg"
+      sx={{
+        width: "90vw",
+        // height: "72vh",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        color: "black",
+        fontWeight: "bolder",
+      }}
+    >
+      <Paper
         component="form"
         onSubmit={handleSubmit}
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        elevation={10}
+        sx={{ padding: 3, borderRadius: 3 }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Register
-        </Typography>
-
-        <TextField
-          label="Username"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <TextField
-          label="Email"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <TextField
-          label="Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <TextField
-          label="Confirm Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
-            {error}
-          </Typography>
-        )}
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3, mb: 2 }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0 }}
         >
-          Sign Up
-        </Button>
+          <Typography
+            variant="h4"
+            gutterBottom
+            align="center"
+            color="primary"
+            sx={{ fontWeight: "bold", fontSize: "2rem" }}
+          >
+            Register
+          </Typography>
 
-        <Grid2 container justifyContent="center">
-          <Grid2 item>
-            <Link to="/login" style={{ textDecoration: "none", color: "blue" }}>
-              Already have an account? Sign in
-            </Link>
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            sx={{ mb: 3 }}
+          >
+            Create an account
+          </Typography>
+
+          <Box mb={2}>
+            <TextField
+              label="Username"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Box>
+
+          <Box mb={2}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
+
+          <Box mb={2}>
+            <TextField
+              label="Password"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Box>
+
+          <Box mb={2}>
+            <TextField
+              label="Confirm Password"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </Box>
+
+          {error && (
+            <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+              {error}
+            </Typography>
+          )}
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{
+              padding: "10px",
+              backgroundColor: "secondary.main",
+              ":hover": { backgroundColor: "secondary.dark" },
+              fontSize: "1.2rem",
+            }}
+          >
+            Sign Up
+          </Button>
+
+          <Grid2 container justifyContent="center" sx={{ mt: 3 }}>
+            <Grid2 item>
+              <Link
+                to="/login"
+                style={{ textDecoration: "none", color: "blue" }}
+              >
+                Already have an account? Sign in
+              </Link>
+            </Grid2>
           </Grid2>
-        </Grid2>
-      </Box>
+        </motion.div>
+      </Paper>
     </Container>
   );
 };

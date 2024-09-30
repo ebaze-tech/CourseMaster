@@ -24,7 +24,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Alert from "@mui/material/Alert";
 
 const AdminTestUpload = () => {
-  const [testName, setTestName] = useState("");
+  // const [testName, setTestName] = useState("");
   const [category, setCategory] = useState("");
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({
@@ -61,7 +61,7 @@ const AdminTestUpload = () => {
 
   const validateForm = () => {
     const errors = {};
-    if (!testName) errors.testName = "Test name is required.";
+    // if (!testName) errors.testName = "Test name is required.";
     if (!category) errors.category = "Category is required.";
     if (!testFile) errors.testFile = "Test file is required.";
 
@@ -128,7 +128,7 @@ const AdminTestUpload = () => {
     if (!validateForm()) return;
 
     const formData = new FormData();
-    formData.append("testName", testName);
+    // formData.append("testName", testName);
     formData.append("category", category);
     formData.append("file", testFile);
     formData.append("questions", JSON.stringify(questions));
@@ -145,7 +145,7 @@ const AdminTestUpload = () => {
         severity: "success",
       });
 
-      setTestName("");
+      // setTestName("");
       setCategory("");
       setQuestions([]);
       setTestFile(null);
@@ -178,7 +178,7 @@ const AdminTestUpload = () => {
 
           <form onSubmit={handleSubmit}>
             {/* Test Name */}
-            <Box mb={3}>
+            {/* <Box mb={3}>
               <TextField
                 label="Test Name"
                 fullWidth
@@ -190,7 +190,7 @@ const AdminTestUpload = () => {
                 helperText={validationErrors.testName}
                 sx={{ backgroundColor: "white" }}
               />
-            </Box>
+            </Box> */}
 
             {/* Category Selector */}
             <Box mb={3}>

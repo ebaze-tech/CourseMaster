@@ -27,10 +27,9 @@ const SubmittedTests = () => {
   useEffect(() => {
     const fetchTests = async () => {
       try {
-        const { data } = await API.get("/test/submitted");
+        const { data } = await API.get("/dashboard/user/test/results");
         setTests(data);
         setLoading(false);
-        console.log("Fetched tests:", data);
       } catch (error) {
         console.error("Error fetching tests:", error);
         setError(error.response?.data?.message || "Error fetching tests");
@@ -58,24 +57,16 @@ const SubmittedTests = () => {
           <TableHead>
             <TableRow sx={{ backgroundColor: grey[200] }}>
               <TableCell>
-                <Typography variant="subtitle2" fontWeight="bolder">
-                  Username
-                </Typography>
+                <Typography variant="subtitle2">Username</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="subtitle2" fontWeight="bolder">
-                  Test Category
-                </Typography>
+                <Typography variant="subtitle2">Test Category</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="subtitle2" fontWeight="bolder">
-                  Submitted At
-                </Typography>
+                <Typography variant="subtitle2">Submitted At</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="subtitle2" fontWeight="bolder">
-                  Details
-                </Typography>
+                <Typography variant="subtitle2">Details</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -95,18 +86,17 @@ const SubmittedTests = () => {
                       "&:nth-of-type(odd)": { backgroundColor: grey[50] },
                     }}
                   >
-                    {/* Handle undefined or null userId */}
                     <TableCell>
                       {test.userId ? test.userId.username : "Unknown User"}
                     </TableCell>
                     <TableCell>{test.category}</TableCell>
                     <TableCell>
-                      {new Date(test.submittedAt).toLocaleString()}
+                      {new Date(test.subtmiitedAt).toLocaleString()}
                     </TableCell>
                     <TableCell>
                       <IconButton
                         component={Link}
-                        to={`/admin/tests/${test._id}`}
+                        to={`/user/test/result/${test._id}`}
                         color="primary"
                         aria-label="view details"
                       >

@@ -5,8 +5,10 @@ import {
   Container,
   Typography,
   Box,
-  Grid2,
+  Grid,
+  Paper,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api"; // Import the Axios instance
 
@@ -23,7 +25,7 @@ const LoginForm = () => {
       const { data } = await API.post("/auth/login", { email, password });
       console.log("Login successful, token:", data.token);
       localStorage.setItem("token", data.token);
-      navigate("/test/category");
+      navigate("/user/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       setError(error.response?.data?.message || "Invalid email or password");
@@ -31,65 +33,108 @@ const LoginForm = () => {
   };
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: "100px" }}>
-      <Box
+    <Container
+      maxWidth="lg"
+      sx={{
+        width: "90vw",
+        // height: "72vh",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        color: "black",
+        fontWeight: "bolder",
+      }}
+    >
+      <Paper
         component="form"
         onSubmit={handleSubmit}
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        elevation={10}
+        sx={{ padding: 3, borderRadius: 3 }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Login
-        </Typography>
-
-        <TextField
-          label="Email"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <TextField
-          label="Password"
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
-            {error}
-          </Typography>
-        )}
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3, mb: 2 }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0}}
         >
-          Sign In
-        </Button>
+          <Typography
+            variant="h4"
+            gutterBottom
+            align="center"
+            color="primary"
+            sx={{ fontWeight: "bold" }}
+          >
+            Login
+          </Typography>
 
-        <Grid2 container justifyContent="center">
-          <Grid2 item>
-            <Link
-              to="/register"
-              style={{ textDecoration: "none", color: "blue" }}
-            >
-              Don't have an account? Sign up
-            </Link>
-          </Grid2>
-        </Grid2>
-      </Box>
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            sx={{ mb: 3, fontSize: "2rem" }}
+          >
+            Login to your account
+          </Typography>
+
+          <Box mb={4}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
+
+          <Box mb={2}>
+            <TextField
+              label="Password"
+              variant="outlined" // Corrected variant
+              name="password"
+              type="password"
+              margin="normal"
+              required
+              fullWidth
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Box>
+
+          {error && (
+            <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+              {error}
+            </Typography>
+          )}
+
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{
+              padding: "10px",
+              backgroundColor: "secondary.main",
+              ":hover": { backgroundColor: "secondary.dark" },
+              fontSize: "1.2rem",
+            }}
+          >
+            Sign In
+          </Button>
+
+          <Grid container justifyContent="center" sx={{ mt: 3 }}>
+            <Grid item>
+              <Link
+                to="/register"
+                style={{ textDecoration: "none", color: "blue" }}
+              >
+                Don't have an account? Sign up
+              </Link>
+            </Grid>
+          </Grid>
+        </motion.div>
+      </Paper>
     </Container>
   );
 };

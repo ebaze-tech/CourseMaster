@@ -68,7 +68,7 @@ const TestForm = ({ category }) => {
       setTimeout(() => {
         setIsHolding(false);
         setShowResults(true); // Show result page
-      }, 10000); // 3 seconds delay before showing the results
+      }, 5000); // 3 seconds delay before showing the results
     } catch (error) {
       console.error("Error submitting test:", error);
       alert("Failed to submit the test. Please try again.");

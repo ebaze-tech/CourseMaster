@@ -65,18 +65,18 @@ const AdminLoginForm = () => {
       maxWidth="lg"
       sx={{
         width: "90vw",
-        height: "50vh",
+        // height: "50vh",
         alignItems: "center",
         justifyContent: "center",
         textAlign:"center",
         
       }}
     >
-      <Paper elevation={4} sx={{ padding: 4, borderRadius: 3 }}>
+      <Paper elevation={10} sx={{ padding: 0, borderRadius: 3 }}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1.0 }}
         >
           <Typography
             variant="h4"
@@ -92,7 +92,7 @@ const AdminLoginForm = () => {
             variant="subtitle1"
             align="center"
             color="textSecondary"
-            sx={{ mb: 3 }}
+            sx={{ mb: 3 ,ontSize: "2rem"}}
           >
             Please login with your admin credentials.
           </Typography>
