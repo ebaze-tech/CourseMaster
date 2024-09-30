@@ -121,6 +121,7 @@ const HomePage = () => {
               gutterBottom
               color="primary"
               textAllign="center"
+              marginTop="3rem"
             >
               Why Choose Us?
             </Typography>
