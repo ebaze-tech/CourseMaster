@@ -1,0 +1,22 @@
+{
+    "builds": [
+        {
+            "src": "Admin/build/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "TestUsers/build/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/Admin/(.*)",
+            "dest": "/Admin/build/$1"
+        },
+        {
+            "src": "/TestUsers/(.*)",
+            "dest": "/TestUsers/build/$1"
+        }
+    ]
+}
