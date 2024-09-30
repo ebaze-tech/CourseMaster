@@ -10,7 +10,7 @@ const HomePage = () => {
     <Box
       sx={{
         // background: "linear-gradient(135deg, #3f51b5 30%, #2196f3 90%)",
-        height: "100vh",
+        height: "110vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
