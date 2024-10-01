@@ -151,7 +151,7 @@ const TestForm = ({ category }) => {
           </Typography>
         </Grid2>
         <Grid2 item xs={12} md={6} textAlign="center">
-          <Timer initialSeconds={3600} onTimeUp={handleTimeUp} />
+          <Timer initialSeconds={7200} onTimeUp={handleTimeUp} />
         </Grid2>
       </Grid2>
 
@@ -195,7 +195,7 @@ const TestForm = ({ category }) => {
             </Box>
           ))
         ) : (
-          <Typography>No questions available</Typography>
+          <Typography>Questions loading. Please wait....</Typography>
         )}
 
         <Box mt={4}>
