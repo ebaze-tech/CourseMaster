@@ -7,11 +7,11 @@ const TypingEffect = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: "left",
+        alignItems: "flex-start",
         textAlign: "center",
         height: "100px", // Set a fixed height to prevent content shifting
-        marginTop: 5,
+        marginTop: 4.2,
       }}
     >
       <Typography
@@ -31,8 +31,8 @@ const TypingEffect = () => {
           style={{
             display: "inline-block",
             minWidth: "300px",
-            alignItems: "center",
-            justifyContent: "center",
+            alignItems: "flex-start",
+            justifyContent: "left",
           }}
         >
           <Typewriter

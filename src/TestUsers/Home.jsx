@@ -13,16 +13,15 @@ const Home = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100  max-w-100vw overflow-hidden max-h-screen font-AfacacadFlux">
+    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100  overflow-hidden max-w-screen  max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
-      <div className=" lg:pr-10">
+      <div className=" lg:pr-4">
         {/* Welcome and Title Section */}
         <div className=" text-center lg:text-left">
-          <h1 className="text-5xl lg:text-6xl text-center font-bold text-gray-700">
+          <h1 className="text-6xl lg:text-6xl text-left font-bold text-gray-700">
             Welcome to
-          </h1>
-          <TypingEffect className="mt-4" />
-          <h1 className="text-5xl lg:text-5x text-center font-bold text-gray-700 mt-10">
+            <TypingEffect />
+            {/* className="text-6xl lg:text-5x text-left font-bold text-gray-700 */}
             Test Platform!
           </h1>
         </div>
@@ -36,7 +35,7 @@ const Home = () => {
           </p>
 
           <div className="mb-4">
-            <h2 className="text-[2.5rem] font-bold text-gray-800 text-left border-black">
+            <h2 className="text-[2.5rem]  text-gray-800 text-left border-black">
               <strong>Instructions:</strong>
             </h2>
             <ul className=" list-inside mt-2 space-y-2 list-none text-[1.8rem]">
