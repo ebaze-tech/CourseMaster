@@ -13,18 +13,18 @@ const Home = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between p-8 bg-gray-100  max-w-100vw overflow-hidden max-h-screen font-AfacacadFlux">
+    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100  max-w-100vw overflow-hidden max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
       <div className=" lg:pr-10">
         {/* Welcome and Title Section */}
         <div className=" text-center lg:text-left">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-700">
+          <h1 className="text-5xl lg:text-6xl text-center font-bold text-gray-700">
             Welcome to
           </h1>
           <TypingEffect className="mt-4" />
-          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-700 mt-10">
+          <h1 className="text-5xl lg:text-5x text-center font-bold text-gray-700 mt-10">
             Test Platform!
-          </h2>
+          </h1>
         </div>
 
         {/* Instructions Section */}
@@ -36,8 +36,8 @@ const Home = () => {
           </p>
 
           <div className="mb-4">
-            <h2 className="text-[2.5rem] font-semibold text-gray-800 border-b-4 text-center border-black">
-              Instructions
+            <h2 className="text-[2.5rem] font-bold text-gray-800 text-left border-black">
+              <strong>Instructions:</strong>
             </h2>
             <ul className=" list-inside mt-2 space-y-2 list-none text-[1.8rem]">
               <li>
@@ -83,7 +83,7 @@ const Home = () => {
       </div>
       {/* Right Section: Image */}
       {/* <div className="flex flex-row w-full "> */}
-      <div className="flex flex-col items-center justify-center mt-[9rem]">
+      <div className="flex flex-col items-center justify-center mt-[12rem]">
         <div className="flex flex-row items-center justify-center w-[55rem] h-full mr-4">
           <img
             src={Test3}
@@ -99,12 +99,12 @@ const Home = () => {
         <div className="flex flex-col mb-[10rem] items-center justify-center w-auto">
           <button
             onClick={handleSubmit}
-            className="flex flex-row items-center justify-center gap-4 px-[27.5rem] w-2 mr-4 bg-[#4A90E2] h-[7rem] hover:bg-gray-500 hover:text-black text-white "
+            className="flex flex-row items-center justify-center gap-4 px-[22.5rem] mt-[2rem] rounded-md w-2 mr-4 bg-[#4A90E2] h-[4rem] hover:bg-gray-500 hover:text-black text-white "
           >
-            <p className="text-[4rem]">Login</p>
+            <p className="text-[2rem]">Login</p>
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
-              className="w-32 h-12 items-center justify-center"
+              className="w-10 h-8 items-center justify-center"
             />
           </button>
         </div>

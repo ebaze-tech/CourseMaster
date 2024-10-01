@@ -7,12 +7,11 @@ const TypingEffect = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
         height: "100px", // Set a fixed height to prevent content shifting
         marginTop: 5,
-        marginRight: 8,
       }}
     >
       <Typography
@@ -21,7 +20,7 @@ const TypingEffect = () => {
         sx={{
           color: "#4A90E2", // Use a softer blue
           fontWeight: "bold",
-          fontSize: { xs: "3.5rem", md: "5rem" }, // Double the responsive font size
+          fontSize: { xs: "3rem", md: "3rem" }, // Double the responsive font size
           padding: 2, // Padding for spacing
           lineHeight: "1", // Reduce line height for vertical spacing
         }}
@@ -37,7 +36,11 @@ const TypingEffect = () => {
           }}
         >
           <Typewriter
-            words={["University of Ibadan", "The First", "And The Best"]}
+            words={[
+              "University of Ibadan",
+              "The First University",
+              "And The Best University",
+            ]}
             loop={0}
             typeSpeed={70}
             deleteSpeed={50}
