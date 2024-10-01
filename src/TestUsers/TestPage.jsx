@@ -161,7 +161,7 @@ const TestForm = ({ category }) => {
         {questions.length > 0 ? (
           questions.map((question) => (
             <Box key={question._id} mb={3} p={2} boxShadow={3} borderRadius={2}>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom> 
                 {question.questionText}
               </Typography>
               {question.questionType === "objective" ? (

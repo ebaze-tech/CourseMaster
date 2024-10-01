@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex; /* This will center the container */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure the container takes full vertical space */
+  font-family: Arial, sans-serif; /* Use a more standard font */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr; /* Make it responsive with one column */
+  max-width: 100rem; /* Constrain the grid width */
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for better design */
+  background-color: #f9fafb; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+}
+.welcomeText1{
+    text-align: center;
+}

@@ -1,7 +1,9 @@
+// HomePage.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Typography, Box, Paper } from "@mui/material";
-import { motion } from "framer-motion"; // Import framer-motion for animations
+import { motion } from "framer-motion";
+import TypingEffect from "./TypingEffect";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -9,12 +11,12 @@ const HomePage = () => {
   return (
     <Box
       sx={{
-        // background: "linear-gradient(135deg, #3f51b5 30%, #2196f3 90%)",
-        // height: "100vh ",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#f5f5f5", // Light background
         color: "black",
       }}
     >
@@ -27,19 +29,20 @@ const HomePage = () => {
         >
           <Typography
             variant="h2"
-            color="black"
             fontWeight="bold"
             fontSize="2.5rem"
-            // marginTop={30}
             gutterBottom
           >
-            Welcome to the University of Ibadan Test Platform
+            Welcome to
+            <TypingEffect />
+            <Typography variant="h5" component="span">
+              Test Platform
+            </Typography>
           </Typography>
           <Typography
             variant="h6"
-            color="black"
             fontSize="1.5rem"
-            marginTop="3rem"
+            marginTop="1.5rem"
             gutterBottom
           >
             Proceed to your platform account
@@ -52,45 +55,36 @@ const HomePage = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 1.2 }}
         >
-          <Box
-            mt={4}
-            justifyContent="space-between"
-            alignItems="center"
-            justifyItems="center"
-            textAlign="center"
-            gap={15}
-          >
+          <Box mt={4} display="flex" justifyContent="center" gap={2}>
             <Button
               variant="contained"
-              color="black"
+              color="primary"
               size="large"
               onClick={() => navigate("/login")}
               sx={{
-                // marginRight: "20px",
                 padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
                 backgroundColor: "blueviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginRight: "1rem",
               }}
             >
               Login
             </Button>
             <Button
               variant="outlined"
-              color="black"
+              color="success"
               size="large"
               onClick={() => navigate("/register")}
               sx={{
-                padding: "10px 20px",
+                padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
-                backgroundColor: "green",
+                borderColor: "green",
+                color: "green",
                 height: "4rem",
                 borderRadius: "0.8rem",
-                marginLeft: "1rem",
               }}
             >
               Register
@@ -107,37 +101,29 @@ const HomePage = () => {
           <Paper
             elevation={3}
             sx={{
-              padding: "30px",
-              backgroundColor: "#fff",
+              padding: "40px",
+              backgroundColor: "#ffffff",
               borderRadius: "15px",
-              textAlign: "center",
-              marginTop: "3rem",
-              // justifyContent: "center",
-              verticalAlign: "center",
-              alignItems: "center",
+              marginTop: "4rem",
+              textAlign: "left",
             }}
           >
-            <Typography
-              variant="h4"
-              gutterBottom
-              color="primary"
-              textAllign="center"
-            >
+            <Typography variant="h4" gutterBottom color="primary">
               Why Choose Us?
             </Typography>
-            <Typography variant="h6" prop>
+            <Typography variant="h6" paragraph>
               🚀 <strong>Boost Your Knowledge:</strong> Take specialized tests
               designed by experts to sharpen your skills and knowledge.
             </Typography>
-            <Typography variant="h6" prop>
+            <Typography variant="h6" paragraph>
               💼 <strong>Industry-Driven:</strong> Our tests are tailored to
               real-world scenarios to prepare you for future opportunities.
             </Typography>
-            <Typography variant="h6" prop>
+            <Typography variant="h6" paragraph>
               📈 <strong>Track Your Progress:</strong> Review your past
               performances and monitor improvements over time.
             </Typography>
-            <Typography variant="h6" prop>
+            <Typography variant="h6" paragraph>
               🔗 <strong>Seamless Experience:</strong> Just sign up, login, and
               paste the test link to get started with your next test!
             </Typography>

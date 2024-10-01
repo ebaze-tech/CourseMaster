@@ -6,7 +6,7 @@ import SubmittedTests from "./TestUsers/SubmittedTests";
 import "./App.css";
 import TestForm from "./TestUsers/TestPage";
 import UserDashboard from "./TestUsers/Userdashboard";
-import Homepage from "./TestUsers/Homepage";
+import Homepage from "./TestUsers/Home";
 import ViewTest from "./TestUsers/ViewTest";
 import NotFoundPage from "./TestUsers/404Page";
 
