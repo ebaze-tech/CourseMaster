@@ -18,8 +18,8 @@ const HomePage = () => {
         alignItems: "center",
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
-        marginTop: "18rem",
-        width: "100vw",
+        marginTop: "10rem",
+        overflowX: "hidden",
       }}
     >
       <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
