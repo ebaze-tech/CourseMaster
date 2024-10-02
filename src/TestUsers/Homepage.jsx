@@ -19,7 +19,7 @@ const HomePage = () => {
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
         marginTop: "11rem",
-        width:"100vw"
+        width: "100vw",
         // overflow: "hidden",
       }}
     >
@@ -77,6 +77,11 @@ const HomePage = () => {
                 backgroundColor: "blueviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
+                "&:hover": {
+                  // Apply hover effect
+                  backgroundColor: "darkviolet", // Change background color on hover
+                  color: "white", // Change text color on hover
+                },
               }}
             >
               Login
@@ -93,7 +98,10 @@ const HomePage = () => {
                 borderColor: "green",
                 color: "green",
                 height: "4rem",
-                borderRadius: "0.8rem",
+                borderRadius: "0.8rem",    '&:hover': { // Apply hover effect
+                  backgroundColor: "darkgreen", // Change background color on hover
+                  color: "white", // Change text color on hover
+                },
               }}
             >
               Register
