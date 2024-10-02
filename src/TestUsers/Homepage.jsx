@@ -19,7 +19,7 @@ const HomePage = () => {
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
         marginTop: "10rem",
-        overflowX: "hidden",
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
