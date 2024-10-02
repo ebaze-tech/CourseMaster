@@ -19,7 +19,7 @@ const HomePage = () => {
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
         marginTop: "11rem",
-        // width:"100vw"
+        width:"100vw"
         // overflow: "hidden",
       }}
     >
@@ -28,8 +28,6 @@ const HomePage = () => {
         sx={{
           textAlign: "center",
           color: "black",
-          width: "100vw",
-          overflow: "hidden",
         }}
       >
         {/* Animated Introduction Text */}
