@@ -44,10 +44,10 @@ const HomePage = () => {
           >
             Welcome to
             {/* <TypingEffect /> */}
-            <Typography variant="h5" component="span">
+            <Typography variant="h5" component="span" fontWeight="bold">
               The University of Ibadan
             </Typography>
-            <Typography variant="h5" component="span">
+            <Typography variant="h5" component="span" fontWeight="bold">
               Test Platform
             </Typography>
           </Typography>
