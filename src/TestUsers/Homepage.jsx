@@ -23,7 +23,15 @@ const HomePage = () => {
         // overflow: "hidden",
       }}
     >
-      <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
+      <Container
+        maxWidth="md"
+        sx={{
+          textAlign: "center",
+          color: "black",
+          width: "100vw",
+          overflow: "hidden",
+        }}
+      >
         {/* Animated Introduction Text */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
