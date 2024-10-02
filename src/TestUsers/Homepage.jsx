@@ -19,7 +19,7 @@ const HomePage = () => {
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
         marginTop: "9rem",
-        // width:"100vw"
+        width:"100vw"
         // overflow: "hidden",
       }}
     >
