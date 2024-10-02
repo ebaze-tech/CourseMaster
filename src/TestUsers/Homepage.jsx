@@ -35,6 +35,7 @@ const HomePage = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
+          style={{ marginTop: "3rem" }}
         >
           <Typography
             variant="h2"
@@ -43,8 +44,7 @@ const HomePage = () => {
             component="span"
             gutterBottom
           >
-            Welcome to The University of Ibadan
-            Test Platform
+            Welcome to The University of Ibadan Test Platform
           </Typography>
           <Typography
             variant="h6"
