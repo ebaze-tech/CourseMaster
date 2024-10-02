@@ -102,7 +102,7 @@ const HomePage = () => {
                 backgroundColor: "green",
                 "&:hover": {
                   // Apply hover effect
-                  backgroundColor: "lightgreen", // Change background color on hover
+                  backgroundColor: "darkgreen", // Change background color on hover
                   color: "white", // Change text color on hover
                 },
               }}
