@@ -1,4 +1,4 @@
-  // HomePage.jsx
+// HomePage.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Typography, Box, Paper } from "@mui/material";
@@ -18,7 +18,8 @@ const HomePage = () => {
         alignItems: "center",
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
-        marginTop:"9rem"
+        marginTop: "18rem",
+        width: "100vw",
       }}
     >
       <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
