@@ -18,7 +18,7 @@ const HomePage = () => {
         alignItems: "center",
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
-        marginTop:"3rem"
+        marginTop:"9rem"
       }}
     >
       <Container maxWidth="md" sx={{ textAlign: "center", color: "black" }}>
