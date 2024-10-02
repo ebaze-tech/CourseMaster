@@ -95,11 +95,13 @@ const HomePage = () => {
                 padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
-                borderColor: "green",
-                color: "green",
+                borderColor: "white",
+                color: "white",
                 height: "4rem",
-                borderRadius: "0.8rem",    '&:hover': { // Apply hover effect
-                  backgroundColor: "darkgreen", // Change background color on hover
+                borderRadius: "0.8rem",
+                "&:hover": {
+                  // Apply hover effect
+                  backgroundColor: "green", // Change background color on hover
                   color: "white", // Change text color on hover
                 },
               }}
