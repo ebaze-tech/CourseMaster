@@ -39,11 +39,11 @@ const HomePage = () => {
           <Typography
             variant="h2"
             fontWeight="bold"
-            fontSize="2.5rem"
+            fontSize="2rem"
             component="span"
             gutterBottom
           >
-            Welcome to The University of Ibadan <br />
+            Welcome to The University of Ibadan
             Test Platform
           </Typography>
           <Typography
