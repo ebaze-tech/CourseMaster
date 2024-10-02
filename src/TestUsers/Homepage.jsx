@@ -18,8 +18,8 @@ const HomePage = () => {
         alignItems: "center",
         backgroundColor: "#f5f5f5", // Light background
         color: "black",
-        marginTop: "10rem",
-        width:"100vw"
+        marginTop: "9rem",
+        // width:"100vw"
         // overflow: "hidden",
       }}
     >
