@@ -74,12 +74,12 @@ const HomePage = () => {
                 padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
-                backgroundColor: "blueviolet",
+                backgroundColor: "darkviolet",
                 height: "4rem",
                 borderRadius: "0.8rem",
                 "&:hover": {
                   // Apply hover effect
-                  backgroundColor: "darkviolet", // Change background color on hover
+                  backgroundColor: "blueviolet", // Change background color on hover
                   color: "white", // Change text color on hover
                 },
               }}
@@ -99,9 +99,10 @@ const HomePage = () => {
                 color: "white",
                 height: "4rem",
                 borderRadius: "0.8rem",
+                backgroundColor: "green",
                 "&:hover": {
                   // Apply hover effect
-                  backgroundColor: "green", // Change background color on hover
+                  backgroundColor: "lightgreen", // Change background color on hover
                   color: "white", // Change text color on hover
                 },
               }}
