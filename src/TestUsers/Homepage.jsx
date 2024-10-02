@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        // height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
