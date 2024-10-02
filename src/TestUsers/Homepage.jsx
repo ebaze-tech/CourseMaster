@@ -95,7 +95,7 @@ const HomePage = () => {
                 padding: "10px 40px",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
-                borderColor: "white",
+                borderColor: "black",
                 color: "white",
                 height: "4rem",
                 borderRadius: "0.8rem",
