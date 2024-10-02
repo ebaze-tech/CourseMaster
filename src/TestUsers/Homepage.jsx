@@ -43,7 +43,16 @@ const HomePage = () => {
             component="span"
             gutterBottom
           >
-            Welcome to The University of Ibadan Test Platform
+            Welcome to The University of Ibadan
+          </Typography>
+          <Typography
+            variant="h2"
+            fontWeight="bold"
+            fontSize="2.5rem"
+            component="span"
+            gutterBottom
+          >
+            Test Platform
           </Typography>
           <Typography
             variant="h6"
