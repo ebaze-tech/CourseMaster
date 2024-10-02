@@ -43,7 +43,10 @@ const HomePage = () => {
             gutterBottom
           >
             Welcome to
-            <TypingEffect />
+            {/* <TypingEffect /> */}
+            <Typography variant="h5" component="span">
+              The University of Ibadan
+            </Typography>
             <Typography variant="h5" component="span">
               Test Platform
             </Typography>
