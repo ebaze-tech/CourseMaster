@@ -40,16 +40,10 @@ const HomePage = () => {
             variant="h2"
             fontWeight="bold"
             fontSize="2.5rem"
+            component="span"
             gutterBottom
           >
-            Welcome to
-            {/* <TypingEffect /> */}
-            <Typography variant="h5" component="span" fontWeight="bold">
-              The University of Ibadan
-            </Typography>
-            <Typography variant="h5" component="span" fontWeight="bold">
-              Test Platform
-            </Typography>
+            Welcome to The University of Ibadan Test Platform
           </Typography>
           <Typography
             variant="h6"
