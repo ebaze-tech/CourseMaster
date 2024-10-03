@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginForm from "./TestUsers/LoginPage";
+import LoginForm from "./TestUsers/Login";
 import RegisterForm from "./TestUsers/RegisterForm";
 import CategorySelection from "./TestUsers/CategorySelection";
 import SubmittedTests from "./TestUsers/SubmittedTests";

@@ -4,8 +4,7 @@ export default {
     "./*.html",
     "./index.html",
     "./main.js",
-    "./**/*.{html,js,jsx,ts,tsx}",
-    "./src/**/**/**.{js,ts,jsx,tsx}",
+    "./src/**/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -19,7 +18,9 @@ export default {
       },
       fontFamily: {
         AfacacadFlux: ['"Afacad Flux"', "sans-serif"], // Ensure correct font declaration
-        Roboto: ['"Roboto"', "sans-serif"], // Adding Roboto font as a fallback
+        Roboto: ['"Roboto"', "sans-serif"],
+        Outfit: ['"Outfit"', "sans-serif"],
+        RobotSlab: ["Roboto Slab", "sans-serif"], // Adding Roboto font as a fallback
       },
     },
   },

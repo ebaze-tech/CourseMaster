@@ -13,7 +13,7 @@ const Home = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100  overflow-hidden max-w-screen  max-h-screen font-AfacacadFlux">
+    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100 w-scree overflow-x-hidden  max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
       <div className=" lg:pr-4">
         {/* Welcome and Title Section */}
