@@ -15,30 +15,35 @@ const Home = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between  bg-gray-100 w-screen overflow-x-hidden  max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
-      <div className="flex flex-col mt-[35rem] lg:flex-col lg:mt-{0rem}">
-        {/* Welcome and Title Section */}
-        <div className=" text-center lg:text-left">
-          <h1 className="text-5xl lg:text-6xl text-left font-bold text-gray-700">
-            Welcome to
+      <div className="pl-8">
+        <div className="flex flex-col mt-[2rem] ">
+          {/* Welcome and Title Section */}
+          <div className=" text-center lg:text-left ml-4">
+            <h1 className="text-[2rem] lg:text-[2rem] text-left mr-[1rem] font-bold text-gray-700">
+              Welcome to </h1>
+          </div>
+          <div className="mr-10">
             <TypingEffect />
-            {/* className="text-6xl lg:text-5x text-left font-bold text-gray-700 */}
-            Test Platform!
-          </h1>
+          </div>
+          <div className="ml-4">
+            <h1 className="text-[2rem] lg:text-[2rem] text-left font-bold text-gray-700">
+              Test Platform!</h1>
+          </div>
         </div>
 
         {/* Instructions Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mt-8">
-          <p className="text-[1.8rem] text-gray-600 ">
+        <div className="bg-white p-6 rounded-lg shadow-lg mt-3 w-[40rem]">
+          <p className="text-[1.2rem] text-gray-600 ">
             This platform is designed to facilitate a seamless testing
             experience for students. Here, you will be able to access and
             complete your scheduled tests and assessments with ease.
           </p>
 
-          <div className="mb-4">
-            <h2 className="text-[2.5rem]  text-gray-800 text-left border-black">
+          <div className="text-[1.4rem] ">
+            <h2 className=" text-gray-800 text-left border-black">
               <strong>Instructions:</strong>
             </h2>
-            <ul className=" list-inside mt-2 space-y-2 list-none text-[1.8rem]">
+            <ul className=" list-inside mt-2 space-y-2 list-none text-[1.2rem]">
               <li>
                 <h3>
                   <strong>Login</strong>: Use your university matric number and
@@ -65,50 +70,51 @@ const Home = () => {
               </li>
             </ul>
           </div>
-
-          <p className="font-bold text-gray-700 text-[1.4rem]">
-            Good luck with your tests, and remember to follow all instructions
-            carefully!
-          </p>
-          <p className="mt-4 text-gray-600 font-bold text-[1.2rem]">
-            If you encounter any issues, contact the technical support team via{" "}
-            <i>
-              <a href="#" className="text-purple-500">
-                info@items.ui.edu.ng
-              </a>
-            </i>
-          </p>
+          <div>
+            <p className="font-bold text-gray-700 text-[1.2rem] ">
+              Good luck with your tests, and remember to follow all instructions
+              carefully!
+            </p>
+            <p className="mt-2 text-gray-600 font-bold text-[1.2rem]">
+              If you encounter any issues, contact the technical support team via{" "}
+              <i>
+                <a href="#" className="text-purple-500">
+                  info@items.ui.edu.ng
+                </a>
+              </i>
+            </p>
+          </div>
         </div>
       </div>
       {/* Right Section: Image */}
-      {/* <div className="flex flex-row w-full "> */}
-      <div className="flex flex-col items-center justify-center mt-[12rem]">
-        <div className="flex flex-row items-center justify-center w-[50rem] h-full mr-4">
+      <div className="flex flex-col items-center justify-center mt-12 ">
+        <div className="flex flex-row items-center justify-center  pr-8 ">
           <img
             src={Test3}
             alt="Student"
-            className="w-1/2 max-w-[50rem] h-[50rem] object-cover"
+            className="w-[20rem] max-w-[50rem] h-[32rem] object-cover"
           />
           <img
             src={Test4}
             alt="Student"
-            className="w-1/2 max-w-[50rem] h-[50rem] object-cover"
+            className="w-[20rem] max-w-[50rem] h-[32rem] object-cover"
           />
         </div>
-        <div className="flex flex-col items-center justify-center w-auto mt-[7rem]">
+        <div className="flex flex-col items-center text-center justify-center mt-4">
           <button
             onClick={handleSubmit}
-            className="flex flex-row items-center justify-center gap-4 px-[22.5rem] mt-[2rem] rounded-md w-2 mr-4 bg-[#4A90E2] h-[4rem] hover:bg-gray-500 hover:text-black text-white "
+            className="flex flex-row items-center justify-center text-center gap-4 px-[8.55rem]   rounded-md mr-10 bg-[#4A90E2] h-[3rem] hover:bg-gray-500 hover:text-black text-white "
           >
-            <p className="text-[2rem]">Login</p>
+            <p className="text-[1.7rem]">Login</p>
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
+
               className="w-10 h-8 items-center justify-center"
             />
           </button>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

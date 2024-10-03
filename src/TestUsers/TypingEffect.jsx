@@ -10,21 +10,21 @@ const TypingEffect = () => {
         justifyContent: "left",
         alignItems: "flex-start",
         textAlign: "center",
-        height: "100px", // Set a fixed height to prevent content shifting
-        marginTop: 4.2,
+        height: "65px", // Set a fixed height to prevent content shifting
+        // paddingRight: "10rem"
       }}
     >
       <Typography
-        variant="h3"
+        variant="h4"
         component="div"
         sx={{
           color: "#4A90E2", // Use a softer blue
           fontWeight: "bold",
-          fontSize: { xs: "3rem", md: "3rem" }, // Double the responsive font size
+          fontSize: { xs: "2rem", md: "2.5rem" }, // Double the responsive font size
           padding: 2, // Padding for spacing
           lineHeight: "1", // Reduce line height for vertical spacing
         }}
-        className="text-5xl font-bold bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent"
+        // className=" font-bold bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent"
         aria-live="polite" // For accessibility
       >
         <span
@@ -42,7 +42,7 @@ const TypingEffect = () => {
               "The Best University",
             ]}
             loop={0}
-            typeSpeed={70}
+            typeSpeed={80}
             deleteSpeed={50}
             delaySpeed={1000}
           />
