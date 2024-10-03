@@ -20,6 +20,10 @@ const Login = () => {
 
         // Validate inputs
         if (!email || !password) {
+            setError("Input both email and password are required!");
+            return;
+        }
+        if (!email && !password) {
             setError("Email and password are required!");
             return;
         }
@@ -63,8 +67,12 @@ const Login = () => {
                             Login using your student mail and matric number as
                             the password.
                         </p>
-                        <form className="mt-4 p-4" onSubmit={handleSubmit}>
-                            {error && <p className="text-red-500 mb-4">{error}</p>}
+                        <form noValidate className="mt-4 p-4" onSubmit={handleSubmit}>
+                            {error && (
+                                <div className='bg-red text-white px-4 py-3 rounded mb-4 w-full text-center'>
+                                    {error}
+                                </div>
+                            )}
                             <input
                                 type="text"
                                 placeholder="Email"
