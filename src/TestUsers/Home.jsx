@@ -95,7 +95,7 @@ const Home = () => {
             className="w-1/2 max-w-[50rem] h-[50rem] object-cover"
           />
         </div>
-        <div className="flex flex-col mb-[10rem] items-center justify-center w-auto">
+        <div className="flex flex-col items-center justify-center w-auto">
           <button
             onClick={handleSubmit}
             className="flex flex-row items-center justify-center gap-4 px-[22.5rem] mt-[2rem] rounded-md w-2 mr-4 bg-[#4A90E2] h-[4rem] hover:bg-gray-500 hover:text-black text-white "
