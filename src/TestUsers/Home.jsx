@@ -13,12 +13,12 @@ const Home = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-3 bg-gray-100 w-scree overflow-x-hidden  max-h-screen font-AfacacadFlux">
+    <div className="flex flex-col lg:flex-row items-center justify-between  bg-gray-100 w-screen overflow-x-hidden  max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
-      <div className=" lg:pr-4">
+      <div className="flex flex-col mt-[35rem] lg:flex-col lg:mt-0">
         {/* Welcome and Title Section */}
         <div className=" text-center lg:text-left">
-          <h1 className="text-6xl lg:text-6xl text-left font-bold text-gray-700">
+          <h1 className="text-5xl lg:text-6xl text-left font-bold text-gray-700">
             Welcome to
             <TypingEffect />
             {/* className="text-6xl lg:text-5x text-left font-bold text-gray-700 */}
@@ -28,7 +28,7 @@ const Home = () => {
 
         {/* Instructions Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg mt-8">
-          <p className="text-[1.8rem] text-gray-600 mb-4">
+          <p className="text-[1.8rem] text-gray-600 ">
             This platform is designed to facilitate a seamless testing
             experience for students. Here, you will be able to access and
             complete your scheduled tests and assessments with ease.
@@ -83,7 +83,7 @@ const Home = () => {
       {/* Right Section: Image */}
       {/* <div className="flex flex-row w-full "> */}
       <div className="flex flex-col items-center justify-center mt-[12rem]">
-        <div className="flex flex-row items-center justify-center w-[55rem] h-full mr-4">
+        <div className="flex flex-row items-center justify-center w-[50rem] h-full mr-4">
           <img
             src={Test3}
             alt="Student"
