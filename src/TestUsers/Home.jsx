@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between  bg-gray-100 w-screen overflow-x-hidden  max-h-screen font-AfacacadFlux">
       {/* Left Section: Text and Instructions */}
-      <div className="flex flex-col mt-[35rem] lg:flex-col lg:mt-0">
+      <div className="flex flex-col mt-[35rem] lg:flex-col lg:mt-{0rem}">
         {/* Welcome and Title Section */}
         <div className=" text-center lg:text-left">
           <h1 className="text-5xl lg:text-6xl text-left font-bold text-gray-700">
