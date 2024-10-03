@@ -82,7 +82,7 @@ const Home = () => {
       </div>
       {/* Right Section: Image */}
       {/* <div className="flex flex-row w-full "> */}
-      <div className="flex flex-col items-center justify-center mt-[12rem]">
+      <div className="flex flex-col h-fit items-center justify-center mt-[12rem]">
         <div className="flex flex-row items-center justify-center w-[50rem] h-full mr-4">
           <img
             src={Test3}

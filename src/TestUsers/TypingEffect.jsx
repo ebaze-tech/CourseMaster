@@ -39,7 +39,7 @@ const TypingEffect = () => {
             words={[
               "University of Ibadan",
               "The First University",
-              "And The Best University",
+              "The Best University",
             ]}
             loop={0}
             typeSpeed={70}
