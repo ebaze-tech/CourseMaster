@@ -8,28 +8,25 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // Import background images
-import Background1 from "../assets/UI_BG1.jpeg";
-import Background2 from "../assets/UI_BG2.jpeg";
-import Background3 from "../assets/UI_BG3.jpeg";
-import Background4 from "../assets/UI_BG4.jpeg";
+import Background1 from "../assets/UI_BG1_1.jpeg";
+import Background2 from "../assets/UI_BG2_2.jpeg";
+import Background3 from "../assets/UI_BG3_1.jpeg";
+import Background4 from "../assets/UI_BG4_1.jpeg";
+import KDL from "../assets/KDL_2.jpeg";
 
 // Import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function Bg({ className }) {
   return (
-    <div className={`w-full h-screen ${className}`}>
+    <div className={`w-full h-screen ${className} blur-sm`}>
       <Swiper
         spaceBetween={10}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 7000,
           disableOnInteraction: false,
         }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        // navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
         className="w-full h-full"
       >
@@ -57,7 +54,14 @@ export default function Bg({ className }) {
             style={{ backgroundImage: `url(${Background4})` }}
           ></div>
         </SwiperSlide>
+        <SwiperSlide>
+          <div
+            className="h-full w-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${KDL})` }}
+          ></div>
+        </SwiperSlide>
       </Swiper>
     </div>
+
   );
 }

@@ -3,7 +3,7 @@ export default {
   content: [
     "./*.html",
     "./index.html",
-    "./main.js",
+    "./main.jsx",
     "./src/**/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -21,6 +21,15 @@ export default {
         Roboto: ['"Roboto"', "sans-serif"],
         Outfit: ['"Outfit"', "sans-serif"],
         RobotSlab: ["Roboto Slab", "sans-serif"], // Adding Roboto font as a fallback
+      },
+      keyframes: {
+        "slide-up": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "slide-up": "slide-up 0.6s ease-out forwards",
       },
     },
   },
