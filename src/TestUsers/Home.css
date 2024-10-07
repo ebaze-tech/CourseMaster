@@ -181,6 +181,7 @@ body {
     line-height: 20px;
     width: 580px;
     padding: 0;
+    margin-left: 12px;
   }
   .instructions {
     font-size: 18px;
