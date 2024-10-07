@@ -1,8 +1,10 @@
 import React from "react";
-import TypingEffect from "./TypingEffect";
+// import TypingEffect from "./TypingEffect";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons"; // Import the icon
+import { TypeAnimation } from "react-type-animation";
+import "./Home.css"
 
 import Test3 from "../assets/test3.jpg";
 import Test4 from "../assets/test4.jpg";
@@ -13,37 +15,32 @@ const Home = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between  bg-gray-100 w-screen overflow-x-hidden  max-h-screen font-AfacacadFlux">
+    <div className="whole-container">
       {/* Left Section: Text and Instructions */}
-      <div className="pl-8">
-        <div className="flex flex-col mt-[2rem] ">
+      <div className="left-container">
+        <div className="welcome-section">
           {/* Welcome and Title Section */}
-          <div className=" text-center lg:text-left ml-4">
-            <h1 className="text-[2rem] lg:text-[2rem] text-left mr-[1rem] font-bold text-gray-700">
+          <div className="first-text">
+            <h1 className="">
               Welcome to </h1>
-          </div>
-          <div className="mr-10">
-            <TypingEffect />
-          </div>
-          <div className="ml-4">
-            <h1 className="text-[2rem] lg:text-[2rem] text-left font-bold text-gray-700">
-              Test Platform!</h1>
+            <TypeAnimation sequence={[' The University of Ibadan', 700, ' The First!', 700, ' And Certainly The Best!', 700]} speed={200} style={{ fontSize: '2em', color: "#4A90E2" }} repeat={Infinity} />
+            <h1>Test Platform</h1>
           </div>
         </div>
 
         {/* Instructions Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mt-3 w-[40rem]">
-          <p className="text-[1.2rem] text-gray-600 ">
+        <div className="instructions-section">
+          <p className="">
             This platform is designed to facilitate a seamless testing
             experience for students. Here, you will be able to access and
             complete your scheduled tests and assessments with ease.
           </p>
 
-          <div className="text-[1.4rem] ">
-            <h2 className=" text-gray-800 text-left border-black">
-              <strong>Instructions:</strong>
+          <div className="instructions-list">
+            <h2 className="instructions">
+              <strong>Instructions</strong>
             </h2>
-            <ul className=" list-inside mt-2 space-y-2 list-none text-[1.2rem]">
+            <ul className="instructions-list-li">
               <li>
                 <h3>
                   <strong>Login</strong>: Use your university matric number and
@@ -70,15 +67,13 @@ const Home = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <p className="font-bold text-gray-700 text-[1.2rem] ">
+          <div className="instructions-conclusion">
+            <p className="">
               Good luck with your tests, and remember to follow all instructions
-              carefully!
-            </p>
-            <p className="mt-2 text-gray-600 font-bold text-[1.2rem]">
+              carefully! <br />
               If you encounter any issues, contact the technical support team via{" "}
               <i>
-                <a href="#" className="text-purple-500">
+                <a href="#" className="">
                   info@items.ui.edu.ng
                 </a>
               </i>
@@ -87,29 +82,23 @@ const Home = () => {
         </div>
       </div>
       {/* Right Section: Image */}
-      <div className="flex flex-col items-center justify-center mt-12 ">
-        <div className="flex flex-row items-center justify-center  pr-8 ">
+      <div className="right-container">
+        <div className="right-container-images">
           <img
             src={Test3}
             alt="Student"
-            className="w-[20rem] max-w-[50rem] h-[32rem] object-cover"
           />
           <img
             src={Test4}
             alt="Student"
-            className="w-[20rem] max-w-[50rem] h-[32rem] object-cover"
           />
         </div>
-        <div className="flex flex-col items-center text-center justify-center mt-4">
+        <div className="right-container-btn">
           <button
-            onClick={handleSubmit}
-            className="flex flex-row items-center justify-center text-center gap-4 px-[8.55rem]   rounded-md mr-10 bg-[#4A90E2] h-[3rem] hover:bg-gray-500 hover:text-black text-white "
-          >
-            <p className="text-[1.7rem]">Login</p>
-            <FontAwesomeIcon
+            onClick={handleSubmit}>
+            <p className="right-container-p">Login</p> <FontAwesomeIcon
               icon={faArrowRightFromBracket}
-
-              className="w-10 h-8 items-center justify-center"
+              className="icon"
             />
           </button>
         </div>

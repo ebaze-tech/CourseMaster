@@ -55,7 +55,7 @@ const Login = () => {
             <Bg className="absolute inset-0 z-0" />
 
             {/* Swipe Area - Apply swipeable handlers */}
-            <div {...handlers} className="absolute inset-0 z-10 flex flex-col items-center justify-center p-12 bg-opacity-75 font-Outfit sm:max-w-[100vw] sm:h-screen">
+            <div {...handlers} className="sm sm:absolute inset-0 z-10 flex flex-col items-center justify-center p-12 bg-opacity-75 font-Outfit sm:max-w-[100vw] sm:h-screen">
                 <div className="flex flex-col sm:flex-row sm:bg-inherit rounded-[1.8rem] bg-[#DCEDFF] border-black border-2 sm:border-0 items-center justify-center">
                     <div className="flex flex-col w-5/6 items-center justify-center text-center sm:h-[40rem] sm:w-[35rem] sm:bg-white/30 sm:backdrop-blur-md sm:border-black sm:border-2 sm:border-white/20 sm:rounded-lg sm:p-6 sm:shadow-lg sm:mt-[20rem]">
                         <img src={Logo} alt="Logo" className="w-1/2 h-auto mb-6 sm:w-2/3" />
@@ -64,7 +64,7 @@ const Login = () => {
 
                     {/* Swipe Up Intro Animation */}
                     {!showLoginForm && (
-                        <div className="lg:none sm:flex-col sm:absolute sm:bottom-0 sm:w-[35rem] sm:h-[20vh] sm:flex sm:items-center sm:justify-center sm:bg-[#d9d9d9] sm:rounded-t-[1.8rem] sm:p-6 sm:shadow-lg sm:text-black">
+                        <div className=" sm:flex-col sm:absolute sm:bottom-0 sm:w-[35rem] sm:h-[20vh] sm:flex sm:items-center sm:justify-center sm:bg-[#d9d9d9] sm:rounded-t-[1.8rem] sm:p-6 sm:shadow-lg sm:text-black">
                             <div className="sm:items-center sm:flex sm:flex-col sm:w-2xl"> {<ArrowUpwardIcon />}</div><p className="text-[1.9rem]">Swipe Up</p>
                             <h2 className="sm:text-[3.5rem] sm:text-center">Login</h2>
                         </div>
