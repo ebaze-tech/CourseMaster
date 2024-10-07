@@ -173,7 +173,7 @@ body {
     margin-left: 1.1rem;
   }
   .instructions-section {
-    margin-right: 3rem;
+    margin-left: 5rem;
     /* padding: 0px; */
   }
   .instructions-section > p {
@@ -181,12 +181,13 @@ body {
     line-height: 20px;
     width: 580px;
     padding: 0;
-    margin-left: 3rem;
+    margin-left: 5rem;
   }
   .instructions {
     font-size: 18px;
     display: flex;
-    padding: 0px;
+    padding: 0;
+    margin: 0;
   }
   .instructions-list-li {
     font-size: 17px;
@@ -196,7 +197,6 @@ body {
   .instructions-conclusion {
     padding-left: 2px;
     margin: 0;
-    padding-left: 0;
     width: 550px;
   }
   .right-container {
