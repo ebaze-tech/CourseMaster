@@ -122,7 +122,6 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    overflow: hidden;
   }
   .first-text {
     font-size: 10px;
@@ -141,6 +140,7 @@ body {
     padding: 0;
     max-width: 100%;
     text-align: left;
+    padding: 5px;
   }
   .instructions-list {
     max-width: 100%;
