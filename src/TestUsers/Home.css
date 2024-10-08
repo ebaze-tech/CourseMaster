@@ -112,20 +112,17 @@ body {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 467px) {
-  body {
+  .whole-container {
     font-family: "Outfit", sans-serif;
     display: flex;
     font-size: 14px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* overflow: hidden; */
-  }
-  .whole-container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin-top: 0;
     max-width: 100%;
-    padding-left: 3px;
+    overflow: hidden;
   }
   .first-text {
     font-size: 10px;
