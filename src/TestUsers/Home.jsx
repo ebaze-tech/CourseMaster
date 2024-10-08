@@ -22,15 +22,14 @@ const Home = () => {
           {/* Welcome and Title Section */}
           <div className="first-text">
             <h1 className="">
-              Welcome to </h1>
-            <TypeAnimation sequence={[' The University of Ibadan', 700, ' The First!', 700, ' And Certainly The Best!', 700]} speed={200} style={{ fontSize: '2em', color: "#4A90E2" }} repeat={Infinity} />
+              Welcome to</h1><TypeAnimation sequence={[' The University of Ibadan....', 700, ' The First!', 700, ' And Certainly The Best!', 700]} speed={200} style={{ fontSize: '2em', color: "#4A90E2" }} repeat={Infinity} />
             <h1>Test Platform</h1>
           </div>
         </div>
 
         {/* Instructions Section */}
         <div className="instructions-section">
-          <p className="">
+          <p >
             This platform is designed to facilitate a seamless testing
             experience for students. Here, you will be able to access and
             complete your scheduled tests and assessments with ease.
@@ -42,28 +41,28 @@ const Home = () => {
             </h2>
             <ul className="instructions-list-li">
               <li>
-                <h3>
+                <p>
                   <strong>Login</strong>: Use your university matric number and
                   password to log in.
-                </h3>
+                </p>
               </li>
               <li>
-                <h3>
+                <p>
                   <strong>Select Test</strong>: Once logged in, select the test
                   you are scheduled to take.
-                </h3>
+                </p>
               </li>
               <li>
-                <h3>
+                <p>
                   <strong>Test Timing</strong>: Each test has a set duration,
                   and the timer will start as soon as you begin.
-                </h3>
+                </p>
               </li>
               <li>
-                <h3>
+                <p>
                   <strong>Submit</strong>: Ensure you review your answers and
                   submit before the timer ends.
-                </h3>
+                </p>
               </li>
             </ul>
           </div>
@@ -91,6 +90,7 @@ const Home = () => {
           <img
             src={Test4}
             alt="Student"
+            className="right-container-images image-2"
           />
         </div>
         <div className="right-container-btn">

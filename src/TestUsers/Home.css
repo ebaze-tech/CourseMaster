@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   color: black;
   font-family: "Outfit", sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .whole-container {
   display: flex;
@@ -35,6 +35,9 @@ body {
   justify-items: center;
 }
 .right-container-images > img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 450px;
   width: 600px;
   margin: 10px;
@@ -44,8 +47,8 @@ body {
   flex-direction: column;
 }
 .first-text {
-  /* padding-top: 0em; */
-  padding-left: 10px;
+  display: block;
+  text-align: left;
 }
 .first-text > h1 {
   font-size: 2em;
@@ -56,21 +59,21 @@ body {
 }
 .instructions-section > p {
   width: 600px;
-  padding-left: 10px;
+  text-align: left;
 }
 .instructions-list {
   line-height: 2rem;
 }
 .instructions,
 .instructions-list-li {
-  padding-left: 10px;
+  text-align: left;
 }
 .instructions {
   margin-top: 10px;
 }
 .instructions-conclusion {
   margin-top: 10px;
-  padding-left: 5px;
+  text-align: left;
 }
 .right-container-btn {
   display: flex;
@@ -110,78 +113,44 @@ body {
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 467px) {
   body {
-    /* overflow-x: hidden; */
-    max-width: 100vw;
-    font-size: 17px;
-  }
-  .whole-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .left-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .right-container {
-    padding: 10px;
-  }
-  .right-container-images {
-    margin-top: 10px;
-    width: 240px;
-  }
-  .right-container-btn {
-    height: 10px;
-    border-radius: 10px;
-    margin-top: 15px;
-    height: 3rem;
-  }
-  .right-container-images > img {
-    width: 220px;
-    padding: 0;
-    margin: 0;
-  }
-}
-@media screen and (min-width: 468px) and (max-width: 768px) {
-  body {
-    /* overflow-x: hidden; */
-    box-sizing: border-box;
     font-family: "Outfit", sans-serif;
-    max-width: 100vw;
+    display: flex;
+    font-size: 14px;
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    box-sizing: border-box; /* overflow: hidden; */
   }
   .whole-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  .left-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 0;
+    max-width: 100%;
   }
   .first-text {
     font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 1.1rem;
+    text-align: left;
+    display: block;
   }
   .instructions-section {
-    margin-left: 5rem;
-    /* padding: 0px; */
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: 20px;
+    max-width: 100%;
   }
   .instructions-section > p {
-    font-size: 16px;
-    line-height: 20px;
-    width: 580px;
+    font-size: 15px;
     padding: 0;
-    margin-left: 5rem;
+    max-width: 100%;
+    text-align: left;
+  }
+  .instructions-list {
+    max-width: 100%;
+    font-size: 15px;
+    text-align: left;
+  }
+  .instructions-list-li {
+    padding: 0;
   }
   .instructions {
     font-size: 18px;
@@ -189,15 +158,16 @@ body {
     padding: 0;
     margin: 0;
   }
-  .instructions-list-li {
-    font-size: 17px;
-    padding: 0;
-    width: 590px;
-  }
+
   .instructions-conclusion {
-    padding-left: 2px;
+    padding: 0;
     margin: 0;
-    width: 550px;
+  }
+  .instructions-conclusion > p {
+    font-size: 15px;
+    padding: 0;
+    max-width: 100%;
+    text-align: left;
   }
   .right-container {
     margin-top: 20px;
@@ -206,13 +176,135 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 290px;
+    align-items: center; /* width: 290px; */
     padding: 0;
   }
+  .right-container-images .image-2 {
+    display: none;
+  }
   .right-container-images > img {
-    width: 320px;
+    display: none;
+    max-width: 100%;
+    padding: 0;
+  }
+  .right-container-btn {
+    width: auto;
+    padding: 10px;
+    height: 3rem;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right-container-btn > button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  /* body { /* overflow-x: hidden;  width: 100vw; font-size: 17px;
+  }
+  .whole-container { display: flex; flex-direction: column; margin-top: 0;
+  }
+  .left-container { display: flex; flex-direction: row;
+  }
+  .right-container { padding: 10px;
+  }
+  .right-container-images { margin-top: 10px; width: 240px;
+  }
+  .right-container-btn { height: 10px; border-radius: 10px; margin-top: 15px; height: 3rem;
+  }
+  .right-container-images > img { width: 220px; padding: 0; margin: 0;
+  } */
+}
+@media screen and (min-width: 468px) and (max-width: 768px) {
+  body {
+    font-family: "Outfit", sans-serif;
+    display: flex;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* overflow: hidden; */
+  }
+  .whole-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .first-text {
+    font-size: 10px;
+    text-align: left;
+    display: block;
+  }
+  .instructions-section {
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: 20px;
+    width: 500px;
+  }
+  .instructions-section > p {
+    font-size: 15px;
+    padding: 0;
+    width: 470px;
+    text-align: left;
+  }
+  .instructions-list {
+    width: 485px;
+    font-size: 15px;
+    text-align: left;
+  }
+  .instructions-list-li {
+    padding: 0;
+  }
+  .instructions {
+    font-size: 18px;
+    display: flex;
     padding: 0;
     margin: 0;
+  }
+
+  .instructions-conclusion {
+    padding: 0;
+    margin: 0;
+  }
+  .instructions-conclusion > p {
+    font-size: 15px;
+    padding: 0;
+    width: 470px;
+    text-align: left;
+  }
+  .right-container {
+    margin-top: 20px;
+  }
+  .right-container-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; /* width: 290px; */
+    padding: 0;
+  }
+  .right-container-images .image-2 {
+    display: none;
+  }
+  .right-container-images > img {
+    display: none;
+    width: 500px;
+    padding: 0;
+  }
+  .right-container-btn {
+    width: 10rem;
+    padding: 10px;
+    height: 3rem;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right-container-btn > button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
