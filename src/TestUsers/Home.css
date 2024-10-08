@@ -181,14 +181,14 @@ body {
     padding: 0;
     width: 100%;
   }
-  .right-container-images.image-2 {
+  /* .right-container-images.image-2 {
     display: block;
     width: 100%;
     margin: 0 auto;
-  }
+  } */
 
   .right-container-images > img {
-    display: none;
+    /* display: none; */
     width: auto;
     padding: 0;
   }
@@ -280,9 +280,9 @@ body {
     padding: 0;
     width: 100%;
   }
-  .right-container-images.image-2 {
+  /* .right-container-images.image-2 {
     display: none;
-  }
+  } */
   .right-container-images > img {
     /* display: none; */
     width: auto;
