@@ -202,20 +202,6 @@ body {
     align-items: center;
     justify-content: flex-start;
   }
-  /* body { /* overflow-x: hidden;  width: 100vw; font-size: 17px;
-  }
-  .whole-container { display: flex; flex-direction: column; margin-top: 0;
-  }
-  .left-container { display: flex; flex-direction: row;
-  }
-  .right-container { padding: 10px;
-  }
-  .right-container-images { margin-top: 10px; width: 240px;
-  }
-  .right-container-btn { height: 10px; border-radius: 10px; margin-top: 15px; height: 3rem;
-  }
-  .right-container-images > img { width: 220px; padding: 0; margin: 0;
-  } */
 }
 @media screen and (min-width: 468px) and (max-width: 768px) {
   body {
@@ -230,6 +216,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 0;
+    max-width: 100%;
   }
   .first-text {
     font-size: 10px;
@@ -241,16 +228,16 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     line-height: 20px;
-    width: 500px;
+    max-width: 100%;
   }
   .instructions-section > p {
     font-size: 15px;
     padding: 0;
-    width: 470px;
+    max-width: 100%;
     text-align: left;
   }
   .instructions-list {
-    width: 485px;
+    max-width: 100%;
     font-size: 15px;
     text-align: left;
   }
@@ -271,7 +258,7 @@ body {
   .instructions-conclusion > p {
     font-size: 15px;
     padding: 0;
-    width: 470px;
+    max-width: 100%;
     text-align: left;
   }
   .right-container {
@@ -289,7 +276,7 @@ body {
   }
   .right-container-images > img {
     display: none;
-    width: 500px;
+    max-width: 100%;
     padding: 0;
   }
   .right-container-btn {
