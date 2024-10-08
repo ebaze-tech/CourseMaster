@@ -125,6 +125,7 @@ body {
     flex-direction: column;
     margin-top: 0;
     max-width: 100%;
+    padding-left: 3px;
   }
   .first-text {
     font-size: 10px;
