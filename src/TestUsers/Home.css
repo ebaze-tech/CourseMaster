@@ -180,9 +180,12 @@ body {
     align-items: center; /* width: 290px; */
     padding: 0;
   }
-  .right-container-images .image-2 {
-    display: none;
+  .right-container-images.image-2 {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
   }
+
   .right-container-images > img {
     display: none;
     max-width: 100%;
