@@ -193,18 +193,21 @@ body {
   }
   .right-container-btn {
     width: auto;
-    padding: 10px;
+    /* height:0px; */
+    padding: 0px;
     height: 3rem;
     text-align: left;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 20px;
   }
   .right-container-btn > button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding: 25px 30px 25px ;
   }
 }
 @media screen and (min-width: 468px) and (max-width: 768px) {
@@ -220,7 +223,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    max-width: 100%;
+    width: 100%;
   }
   .first-text {
     font-size: 10px;
@@ -288,7 +291,7 @@ body {
     padding: 10px;
     height: 3rem;
     text-align: left;
-    margin: 0;
+    margin-top: 200px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
