@@ -22,7 +22,7 @@ function App() {
         <Route path="/user/dashboard" element={<UserDashboard />} />
         <Route path="/user/test/result/all" element={<SubmittedTests />} />
         <Route path="/user/test/result/:id" element={<ViewTest />} />
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<LoginForm />} />
       </Routes>
     </Router>
   );

@@ -4,16 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   background-color: #f9fafb; /* Lighter background */
-  background-attachment: fixed;
-  min-height: 100vh;
-  width: 100vw;
-  font-family: "Roboto", sans-serif; /* Default font with fallback */
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+  /* background-attachment: fixed; */
+  /* min-height: 100vh; */
+  /* width: 100vw; */
+  /* font-family: "Roboto", sans-serif; Default font with fallback */
+  /* padding: 0; */
+  /* margin: 0; */
+  /* box-sizing: border-box; */
+/* } */ 
 
 .MuiContainer-root {
   background-color: white;
