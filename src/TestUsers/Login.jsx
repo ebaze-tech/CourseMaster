@@ -72,7 +72,6 @@ const Login = () => {
           </div>
           {/* <div className="form-div"> */}
           <form noValidate className="login-form" onSubmit={handleSubmit}>
-            {error && <div className="login-error">{error}</div>}
             <input
               type="text"
               placeholder="Email"
@@ -90,6 +89,7 @@ const Login = () => {
               aria-label="Password"
               required
             />
+            {error && <div className="login-error">{error}</div>}
             <button
               type="submit"
               role="button"
