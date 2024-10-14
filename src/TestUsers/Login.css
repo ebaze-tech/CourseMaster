@@ -141,10 +141,54 @@ html {
 /* Extra Small and Small Devices (Phones) */
 @media screen and (max-width: 575px) {
   .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0;
   }
   .left-item {
-    padding: 1vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 45vh;
+    border-radius: 0;
+    margin-top: 20vmin;
+    gap: 2rem;
+    border: 0;
+  }
+  .left-item h1 {
+    font-size: 6.5vmin;
+  }
+  .right-item {
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 45vh;
+    border-radius: 0;
+    border: 0;
+    gap: 4vmin;
+    padding-bottom: 15vmin;
+  }
+  .right-item .right-item-text {
+    font-size: 7.5vmin;
+  }
+  .right-item p {
+    font-size: 3.5vmin;
+    width: 100vw;
+  }
+  .right-item .login-error,
+  .right-item .login-form input {
+    width: 90vw;
+    height: 10vmin;
+    font-size: 4vmin;
+  }
+  .right-item .login-form {
+    gap: 2em;
+  }
+  .right-item .submit-btn {
+    height: 10vmin;
+    font-size: 5vmin;
   }
 }
 
@@ -176,7 +220,6 @@ html {
     height: 50vh;
     border-radius: 0;
     border: 0;
-    /* padding-bottom: 10rem; */
     gap: 3vmin;
   }
   .right-item .right-item-text {
@@ -231,11 +274,10 @@ html {
     font-size: 27px;
   }
   .right-item .login-form {
-    gap: 2rem;
+    gap: 3rem;
   }
   .right-item .login-form input {
     width: 80vw;
-    font-size: 3.5vmin;
   }
 }
 
