@@ -60,7 +60,6 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* gap: 3rem;    */
   border-radius: 5px;
   padding: 3vmin;
 }
@@ -164,7 +163,7 @@ html {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 45vh;
+    height: 50vh;
     border-radius: 0;
     border: 0;
     gap: 4vmin;
