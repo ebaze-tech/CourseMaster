@@ -143,7 +143,6 @@ html {
 @media screen and (max-width: 575px) {
   .container {
     padding: 0;
-    background-color: burlywood;
   }
   .left-item {
     padding: 1vmin;
@@ -192,10 +191,10 @@ html {
     width: 35rem;
   }
   .right-item .login-error,
-  .right-item .login-form input{
+  .right-item .login-form input {
     width: 80vw;
   }
-  .right-item .login-form{
+  .right-item .login-form {
     gap: 2em;
   }
 }
