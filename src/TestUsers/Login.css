@@ -122,7 +122,7 @@ html {
   color: #fff;
 }
 .right-item .login-form input {
-  width: 40vw;
+  min-width: 80vmin;
   height: 7vmin;
   background-color: #cfcfcf6e;
 }
@@ -226,11 +226,11 @@ html {
   }
   .right-item p {
     font-size: 3.5vmin;
-    width: 35rem;
+    min-width: 35rem;
   }
   .right-item .login-error,
   .right-item .login-form input {
-    width: 80vw;
+    min-width: 80vw;
   }
   .right-item .login-form {
     gap: 2em;
@@ -280,14 +280,50 @@ html {
   }
 }
 
-/* Extra Large Devices (Desktops)
+/* Extra Large Devices (Desktops) */
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
   }
   .left-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+    margin: 25vmin 0 0 0;
+    border-radius: 0;
+    border: 0;
+  }
+  .right-item {
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 20vmin;
+    height: 80vmin;
+    width: 100vw;
+    border-radius: 0;
+    border: 0;
+    padding-bottom: 20vmin;
+  }
+  .right-item .right-item-text {
+    font-size: 6vmin;
+  }
+  .right-item p {
+    font-size: 27px;
+  }
+  .right-item .login-form {
+    gap: 3rem;
+  }
+  .right-item .login-form input {
+    width: 80vw;
   }
 }
-
+/*
 /* Very Large Devices (Above 1200px) */
 /*@media screen and (min-width: 1201px) {
   .container {
