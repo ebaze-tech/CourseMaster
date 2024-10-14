@@ -168,13 +168,13 @@ html {
     border-radius: 0;
     border: 0;
     gap: 4vmin;
-    padding-bottom: 15vmin;
+    padding-bottom: 10vmin;
   }
   .right-item .right-item-text {
     font-size: 7.5vmin;
   }
   .right-item p {
-    font-size: 3.5vmin;
+    font-size: 3.6vmin;
     width: 100vw;
   }
   .right-item .login-error,
