@@ -388,8 +388,12 @@ html {
   .left-item {
     display: flex;
     flex-direction: column;
-    /* padding: 0 10vmin; */
+    padding: 0 5vmin;
     width: 70vmin;
+  }
+  .left-item h1 {
+    font-size: 3.5vmin;
+    margin-top: 20px;
   }
   .right-item {
     display: flex;
