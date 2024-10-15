@@ -389,7 +389,7 @@ html {
     display: flex;
     flex-direction: column;
     /* padding: 0 10vmin; */
-    width: 90vmin;
+    width: 70vmin;
   }
   .right-item {
     display: flex;
