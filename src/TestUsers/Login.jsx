@@ -71,8 +71,8 @@ const Login = () => {
             <h1 className="right-item-text">Login</h1>
             <p>Login with your student email and matric number as password.</p>
           </div>
-          {error && <p className="login-error">{error}</p>}
           <form noValidate className="login-form" onSubmit={handleSubmit}>
+            {error && <p className="login-error">{error}</p>}
             <input
               type="text"
               placeholder="Email"
