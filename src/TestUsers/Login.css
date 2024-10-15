@@ -286,6 +286,7 @@ html {
   }
   .right-item-top {
     margin-top: 30vmin;
+    padding-top: 30vmin;
   }
   .right-item .right-item-text {
     font-size: 5vmin;
