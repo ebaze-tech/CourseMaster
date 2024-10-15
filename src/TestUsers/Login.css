@@ -291,10 +291,10 @@ html {
   .right-item p {
     font-size: 4vmin;
   }
-  .right-item .login-error,{
+  .right-item .login-error {
+    width: 90vmin;
     height: 10vmin;
   }
-  .right-item .login-error,
   .right-item .login-form input,
   .right-item .submit-btn {
     width: 90vmin;
