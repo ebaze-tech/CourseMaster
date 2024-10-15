@@ -31,6 +31,7 @@ const Login = () => {
       seetError("Email is required for login.");
     } else if (!password) {
       seetError("Password is required for login.");
+      return;
     }
     const loginData = { email, password };
 
@@ -63,7 +64,7 @@ const Login = () => {
       <div className="container">
         <div className="left-item">
           <img className="logo" src={Logo} alt="University of Ibadan Logo" />
-          <h1>UI TEST PLATFORM</h1>
+          <h1>THE UNIVERSITY OF IBADAN TEST PLATFORM</h1>
         </div>
         <div className="right-item">
           <div className="right-item-top">

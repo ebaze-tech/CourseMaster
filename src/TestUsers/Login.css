@@ -101,14 +101,13 @@ html {
   align-items: center;
   text-align: center;
   border-radius: 5px;
-  padding: 3vmin;
 }
 .left-item {
   display: flex;
   flex-direction: column;
   gap: 15px;
   height: 90vh;
-  width: 45%;
+  width: 90vw;
   background: #dcedff99;
   justify-content: center;
   align-items: center;
@@ -129,7 +128,7 @@ html {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  width: 50%;
+  width: 90vw;
   padding: 2vmin 0;
   border-radius: 0 2.5rem 2.5rem 0;
   border: 2px solid black;
@@ -147,12 +146,15 @@ html {
 .right-item .login-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   margin-top: 20px;
 }
 .right-item .login-error {
   background-color: red;
-  height: 2.5rem;
+  width: 90vmin;
+  height: 7vmin;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -161,14 +163,21 @@ html {
   color: #fff;
 }
 .right-item .login-form input {
-  min-width: 80vmin;
+  width: 90vmin;
   height: 7vmin;
   background-color: #cfcfcf6e;
 }
 .right-item .submit-btn {
   background-color: #4b86ce;
   height: 7vmin;
+  width: 90vmin;
+  /* padding: 0 20vmin; */
   font-size: 4vmin;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 .right-item .submit-btn:hover {
   background-color: #307dd0;
@@ -243,21 +252,24 @@ html {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 40vh;
+    height: 50vh;
     border-radius: 0;
     gap: 2rem;
     border: 0;
+    margin-top: 10vmin;
   }
   .left-item h1 {
     font-size: 6.5vmin;
   }
+
   .right-item {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 50vh;
+    height: 60vh;
     border-radius: 0;
     border: 0;
+    padding-bottom: 25vmin;
     gap: 3vmin;
   }
   .right-item .right-item-text {
@@ -290,17 +302,18 @@ html {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 60vh;
+    height: 50vh;
     margin: 25vmin 0 0 0;
     border-radius: 0;
     border: 0;
+    margin-top: 10vmin;
   }
   .right-item {
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin-bottom: 20vmin;
-    height: 60vmin;
+    /* padding: 0; */
+    padding-bottom: 10vmin;
+    height: 55vh;
     width: 100vw;
     border-radius: 0;
     border: 0;
@@ -364,9 +377,36 @@ html {
 }
 /*
 /* Very Large Devices (Above 1200px) */
-/*@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1201px) {
   .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   .left-item {
-  } 
-}*/
+    display: flex;
+    flex-direction: column;
+    /* padding: 0 10vmin; */
+    width: 90vmin;
+  }
+  .right-item {
+    display: flex;
+    flex-direction: column;
+    width: 70vmin;
+    padding: 0 5vmin;
+  }
+  .right-item .login-error,
+  .right-item .login-form input {
+    font-size: 2.5vmin;
+  }
+  .right-item .submit-btn {
+    font-size: 3.5vmin;
+  }
+  .right-item .login-error,
+  .right-item .submit-btn,
+  .right-item .login-form input {
+    width: 65vmin;
+  }
+}
