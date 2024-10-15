@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-origin: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+body,
+html {
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
