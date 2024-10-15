@@ -161,11 +161,13 @@ html {
   justify-content: center;
   align-items: center;
   color: #fff;
+  border-radius: 2vmin;
 }
 .right-item .login-form input {
   width: 90vmin;
   height: 7vmin;
   background-color: #cfcfcf6e;
+  border-radius: 2vmin;
 }
 .right-item .submit-btn {
   background-color: #4b86ce;
@@ -178,6 +180,7 @@ html {
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-radius: 2vmin;
 }
 .right-item .submit-btn:hover {
   background-color: #307dd0;
@@ -292,7 +295,6 @@ html {
   .right-item .submit-btn {
     width: 90vmin;
     height: 8vmin;
-    border-radius: 2vmin;
     text-align: center;
   }
   .right-item .login-form {
