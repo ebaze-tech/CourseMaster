@@ -12,7 +12,7 @@ import SUPPORT from "../assets/UNION.svg";
 import PROFILEPICTURE from "../assets/PROFILEPICTURE.png";
 import GHOSTPICTURE from "../assets/GHOSTPICTURE.png";
 import BENZENE from "../assets/BENZENE.png";
-import TESA from "../assets/TESTA.png";
+import TESA from "../assets/TESA.png";
 import NICESA from "../assets/NICESA.png";
 import BACKICON from "../assets/BACKICON.svg";
 import FORWARDICON from "../assets/FORWARDICON.svg";
