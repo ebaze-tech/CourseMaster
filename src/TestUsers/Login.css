@@ -294,12 +294,11 @@ html {
   .right-item .login-error {
     width: 90vmin;
     height: 12vmin;
-    margin-top: 20px;
   }
   .right-item .login-form input,
   .right-item .submit-btn {
     width: 90vmin;
-    height: 8vmin;
+    height: 12vmin;
   }
   .right-item .login-form {
     gap: 2em;
