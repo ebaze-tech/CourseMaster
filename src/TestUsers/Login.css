@@ -291,6 +291,9 @@ html {
   .right-item p {
     font-size: 4vmin;
   }
+  .right-item .login-error {
+    padding: 5vmin 0;
+  }
   .right-item .login-error,
   .right-item .login-form input,
   .right-item .submit-btn {
