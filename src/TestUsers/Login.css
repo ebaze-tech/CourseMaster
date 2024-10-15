@@ -285,8 +285,8 @@ html {
     gap: 3vmin;
   }
   .right-item-top {
-    margin-top: 30vmin;
-    padding-top: 30vmin;
+    margin-top: 30rem;
+    /* padding-top: 30vmin; */
   }
   .right-item .right-item-text {
     font-size: 5vmin;
