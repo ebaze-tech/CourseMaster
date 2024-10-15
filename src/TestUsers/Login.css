@@ -205,7 +205,7 @@ html {
     border: 0;
   }
   .left-item h1 {
-    font-size: 6.5vmin;
+    font-size: 5vmin;
   }
   .left-item .logo {
     width: 250px;
@@ -221,7 +221,7 @@ html {
     padding-bottom: 30vmin;
   }
   .right-item .right-item-text {
-    font-size: 7.5vmin;
+    font-size: 5vmin;
   }
   .right-item p {
     font-size: 4vmin;
@@ -263,7 +263,7 @@ html {
     margin-top: 10vmin;
   }
   .left-item h1 {
-    font-size: 6.5vmin;
+    font-size: 5vmin;
   }
   .left-item .logo {
     width: 270px;
@@ -280,14 +280,14 @@ html {
     gap: 3vmin;
   }
   .right-item .right-item-text {
-    font-size: 7.5vmin;
+    font-size: 7vmin;
   }
   .right-item p {
-    font-size: 3.8vmin;
+    font-size: 4vmin;
   }
   .right-item .login-error,
   .right-item .login-form input {
-    min-width: 80vw;
+    width: vmin;
   }
   .right-item .login-form {
     gap: 2em;
