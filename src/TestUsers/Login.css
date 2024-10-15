@@ -207,6 +207,9 @@ html {
   .left-item h1 {
     font-size: 6.5vmin;
   }
+  .left-item .logo {
+    width: 250px;
+  }
   .right-item {
     justify-content: center;
     align-items: center;
@@ -221,8 +224,9 @@ html {
     font-size: 7.5vmin;
   }
   .right-item p {
-    font-size: 3.6vmin;
-    width: 100vw;
+    font-size: 4vmin;
+    text-align: center;
+    /* width: 100vw; */
   }
   .right-item .login-error,
   .right-item .login-form input {
@@ -261,6 +265,9 @@ html {
   .left-item h1 {
     font-size: 6.5vmin;
   }
+  .left-item .logo {
+    width: 270px;
+  }
 
   .right-item {
     justify-content: center;
@@ -276,8 +283,7 @@ html {
     font-size: 7.5vmin;
   }
   .right-item p {
-    font-size: 3.5vmin;
-    min-width: 35rem;
+    font-size: 3.8vmin;
   }
   .right-item .login-error,
   .right-item .login-form input {
