@@ -294,6 +294,7 @@ html {
   .right-item .login-error {
     width: 90vmin;
     height: 12vmin;
+    margin-top: 20px;
   }
   .right-item .login-form input,
   .right-item .submit-btn {
