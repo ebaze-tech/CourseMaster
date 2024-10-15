@@ -256,7 +256,7 @@ html {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 50vh;
+    height: 60vh;
     border-radius: 0;
     gap: 2rem;
     border: 0;
@@ -266,6 +266,7 @@ html {
   }
   .left-item .logo {
     width: 270px;
+    margin-top: 25vmin;
   }
 
   .right-item {
@@ -275,18 +276,24 @@ html {
     height: 70vh;
     border-radius: 0;
     border: 0;
-    padding-bottom: 20vmin;
+    padding-bottom: 30vmin;
+    /* margin-top: 20px; */
     gap: 3vmin;
   }
   .right-item .right-item-text {
-    font-size: 7vmin;
+    font-size: 5vmin;
+    width: 100vw;
   }
   .right-item p {
     font-size: 4vmin;
   }
   .right-item .login-error,
-  .right-item .login-form input {
-    width: vmin;
+  .right-item .login-form input,
+  .right-item .submit-btn {
+    width: 90vmin;
+    height: 8vmin;
+    border-radius: 2vmin;
+    text-align: center;
   }
   .right-item .login-form {
     gap: 2em;

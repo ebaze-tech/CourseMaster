@@ -71,7 +71,8 @@ const Login = () => {
             <h1 className="right-item-text">Login</h1>
             <p>Login with your student email and matric number as password.</p>
           </div>
-          {/* <div className="form-div"> */}
+          {error && <div className="login-error">{error}</div>}
+
           <form noValidate className="login-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -90,7 +91,6 @@ const Login = () => {
               aria-label="Password"
               required
             />
-            {error && <div className="login-error">{error}</div>}
             <button
               type="submit"
               role="button"
