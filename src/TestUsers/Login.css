@@ -293,7 +293,7 @@ html {
   }
   .right-item .login-error {
     width: 90vmin;
-    height: 10vmin;
+    height: 12vmin;
   }
   .right-item .login-form input,
   .right-item .submit-btn {
@@ -347,6 +347,12 @@ html {
   .right-item .login-form input {
     width: 80vw;
   }
+  .right-item .login-error,
+  .right-item .submit-btn,
+  .right-item .login-form input {
+    width: 65vmin;
+    height: 10vmin;
+  }
 }
 
 /* Extra Large Devices (Desktops) */
@@ -391,6 +397,12 @@ html {
   .right-item .login-form input {
     width: 80vw;
   }
+  .right-item .login-error,
+  .right-item .submit-btn,
+  .right-item .login-form input {
+    width: 60vmin;
+    height: 9vmin;
+  }
 }
 /*
 /* Very Large Devices (Above 1200px) */
@@ -429,5 +441,6 @@ html {
   .right-item .submit-btn,
   .right-item .login-form input {
     width: 65vmin;
+    height: 10vmin;
   }
 }
