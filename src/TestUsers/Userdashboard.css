@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-origin: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+body,
+html {
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* TOP-LEFT SECTION BG #3CB0FF */
+
+/* CARD-1 BG #BBFAF7 */
+
+/* CARD-1 BTN-BG  #3CB0FF*/
+
+/* CARD-2 BG #FFD2F9 */
+
+/* CARD-2 BTN-BG #BC57FF */
+
+/* CARD-3 BG #D3FABB */
+
+/* CARD-3 BTN-BG #85FF39 */

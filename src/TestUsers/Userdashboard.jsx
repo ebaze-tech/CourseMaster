@@ -1,100 +1,63 @@
-import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Typography,
-  Grid2,
-  Card,
-  CardContent,
-  CardHeader,
-  CircularProgress,
-  Button,
-  Box,
-  TextField,
-} from "@mui/material";
-import { Bar, Pie } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
+import React, { useEffect, useState } from "react";
+import "./Userdashboard.css";
+import UILOGO from "../assets/UI_LOGO.png";
+import TAKE_TEST from "../assets/TAKE_TEST.svg";
+import NOTIFICATION from "../assets/NOTIFICATION.svg";
+import SCHEDULE from "../assets/CALENDAR.svg";
+import SUBMISSONS from "../assets/SUBMISSIONS.svg";
+import RESULTS from "../assets/RESULTS.svg";
+import DISCUSSION from "../assets/DISCUSSION.svg";
+import STUDY from "../assets/STUDY.svg";
+import SUPPORT from "../assets/UNION.svg";
+import PROFILEPICTURE from "../assets/PROFILEPICTURE.png";
+import GHOSTPICTURE from "../assets/GHOSTPICTURE.png";
+import BENZENE from "../assets/BENZENE.png";
+import TESA from "../assets/TESA.png";
+import NICESA from "../assets/NICESA.png";
+import BACKICON from "../assets/BACKICON.svg";
+import FORWARDICON from "../assets/FORWARDICON.svg";
 import API from "../api";
-import { Link, useNavigate } from "react-router-dom";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
-);
-
-const UserDashboard = () => {
-  const [testLink, setTestLink] = useState("");
-  const [scores, setScores] = useState([]);
-  const [topScores, setTopScores] = useState([]);
-  const [pieData, setPieData] = useState({});
+const Userdashboard = () => {
+  const [data, setData] = useState([]);
+  const [date, setDate] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [scheduleData, setScheduleData] = useState([]);
+  const [userDetails, setUserDetails] = useState({});
+  const [error, setError] = useState(null);
 
-  const handleTestSubmit = (e) => {
-    e.preventDefault();
-    if (testLink) {
-      navigate(testLink); // Redirect user to the test interface
-    } else {
-      alert("Please enter a valid test link.");
-    }
-  };
+  // API REQUEST TO FETCH USER DETAILS
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const userDetailsResponse = await API.get("/fetchuser/:id");
+        if (!userDetailsResponse) {
+          throw new Error("Failed to fetch user details");
+        }
+        const userDetails = await userDetailsResponse.json();
+        setUserDetails(userDetails);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUserDetails();
+  }, []);
 
+  // API REQUEST TO FETCH TEST SCHEDULES
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch user-specific test results and top scores
-        const [scoresResponse, topScoresResponse, pieDataResponse] =
-          await Promise.all([
-            API.get("/dashboard/user/test/results"),
-            API.get("/dashboard/user/test/top10"),
-            API.get("/dashboard/user/test/pieData"),
-          ]);
-
-        setScores(scoresResponse.data);
-        setTopScores(topScoresResponse.data);
-
-        // Prepare pie chart data for score distribution
-        const pieChartData = {
-          labels: pieDataResponse.data.labels,
-          datasets: [
-            {
-              label: "Scores Distribution",
-              data: pieDataResponse.data.values,
-              backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56",
-                "#E6E6E6",
-                "#FF9F40",
-                "#E7E9ED",
-                "#C9CBCF",
-                "#C1C1C1",
-                "#A8A8A8",
-                "#6C757D",
-              ],
-            },
-          ],
-        };
-
-        setPieData(pieChartData);
-        setLoading(false);
+        const response = await API.get("/test/all");
+        if (!response) {
+          throw new Error("Failed to fetch test schedule data");
+        }
+        const result = await response.json();
+        setScheduleData(result);
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Failed to load data");
+        setError(error.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -102,175 +65,116 @@ const UserDashboard = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        // height="100vh"
-      >
-        <CircularProgress />
-      </Box>
-    );
-  }
+  // API REQUEST TO FETCH DATE DISPLAYED ON THE DASHBOARD
+  useEffect(() => {
+    const fetchDashboardDate = async () => {
+      try {
+        const dateResponse = await API.get("/current-datetime");
+        if (!dateResponse) {
+          throw new Error("Failed to fetch date");
+        }
+        const dateData = await dateResponse.json(); // Await the JSON parsing
+        setDate(dateData.datetime);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDashboardDate();
+  }, []);
+
+  // Function to format the date into a more user-friendly format
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+  };
+
+  if (loading) return <div>Loading....</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 5 }}>
-      <Typography
-        variant="h4"
-        gutterBottom
-        align="center"
-        color="primary"
-        fontWeight="bold"
-      >
-        Welcome to your Dashboard
-      </Typography>{" "}
-      <Typography variant="h6" gutterBottom>
-        Paste the test link below to take a test
-      </Typography>
-      <form onSubmit={handleTestSubmit}>
-        <TextField
-          label="Test Link"
-          variant="outlined"
-          fullWidth
-          value={testLink}
-          onChange={(e) => setTestLink(e.target.value)}
-          style={{ marginBottom: "20px" }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{ fontSize: "1.5rem", marginTop: "2rem" }}
-          fullWidth
-        >
-          Take Test
-        </Button>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{ fontSize: "1.5rem", marginTop: "2rem" }}
-          fullWidth
-          component={Link}
-          to="/test/category"
-        >
-          Start Test
-        </Button>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{
-            color: "white",
-            fontWeight: "bolder",
-            fontSize: "1.2rem",
-            marginTop: "2rem",
-          }}
-          component={Link}
-          to="/user/test/result/all"
-        >
-          View My Test Results
-        </Button>
-      </form>
-      {error && (
-        <Typography
-          variant="body1"
-          color="error"
-          sx={{ mb: 2, textAlign: "center" }}
-        >
-          {error}
-        </Typography>
-      )}
-      <Grid2
-        container
-        justifyContent="center"
-        spacing={2}
-        sx={{ mt: 4 }}
-      ></Grid2>
-      <Grid2 container spacing={4}>
-        {/* Metric View of Scores */}
-        <Grid2 item xs={12} md={6} lg={4}>
-          <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
-            <CardHeader title="Total Tests Taken" />
-            <CardContent>
-              <Typography
-                variant="h5"
-                color="secondary"
-                align="center"
-                fontWeight="bold"
-              >
-                {scores.length} Tests
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid2>
+    <div className="dashboard-container">
+      {/* LEFT SECTION */}
+      <section>
+        <div>
+          <img src={UILOGO} alt="Logo of The University of Ibadan" />
+          <h2>UI TEST PLATFORM</h2>
+        </div>
+        <div>
+          <div>
+            <img src={TAKE_TEST} alt="Take a test" />
+            <p>Take Test</p>
+          </div>
+          <div>
+            <img src={NOTIFICATION} alt="" />
+            <p>Notifications</p>
+          </div>
+          <div>
+            <img src={SCHEDULE} alt="" />
+            <p>Test Schedule</p>
+          </div>
+          <div>
+            <img src={SUBMISSONS} alt="" />
+            <p>Submissions</p>
+          </div>
+          <div>
+            <img src={RESULTS} alt="" />
+            <p>Results & Performance</p>
+          </div>
+          <div>
+            <img src={DISCUSSION} alt="" />
+            <p>Discussion Forum</p>
+          </div>
+          <div>
+            <img src={STUDY} alt="" />
+            <p>Study Materials & Resources</p>
+          </div>
+          <div>
+            <img src={SUPPORT} alt="" />
+            <p>Support & Help Center</p>
+          </div>
+        </div>
+      </section>
 
-        {/* Top 10 Scores */}
-        <Grid2 item xs={12} md={6} lg={4}>
-          <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
-            <CardHeader title="Top 10 Scores" />
-            <CardContent>
-              {topScores.length > 0 ? (
-                <Bar
-                  data={{
-                    labels: topScores.map((score) =>
-                      score.userId ? score.userId.username : "Unknown User"
-                    ),
-                    datasets: [
-                      {
-                        label: "Scores",
-                        data: topScores.map((score) => score.totalScore),
-                        backgroundColor: "rgba(54, 162, 235, 0.6)",
-                        borderColor: "rgba(54,162,235,1)",
-                        borderWidth: 1,
-                      },
-                    ],
-                  }}
-                  options={{
-                    responsive: true,
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                        ticks: {
-                          color: "#6c757d",
-                        },
-                      },
-                      x: {
-                        ticks: {
-                          color: "#6c757d",
-                        },
-                      },
-                    },
-                  }}
-                />
-              ) : (
-                <Typography align="center">No top scores available</Typography>
-              )}
-            </CardContent>
-          </Card>
-        </Grid2>
+      {/* MIDDLE SECTION */}
+      <section>
+        <div>
+          <div>
+            <h1>Welcome {userDetails.name}!</h1>
+            <p>Matric No: {userDetails.number}</p>
+            <p>Faculty: {userDetails.faculty}</p>
+            <p>Department: {userDetails.department}</p>
+            <p>Level: {userDetails.level}</p>
+          </div>
+          <div>
+            <p>{formatDate(date)}</p> {/* Display formatted date */}
+          </div>
+        </div>
+        <div>
+          <h2>Test Schedule</h2>
+          <span>
+            <p>Month</p>
+            <p>Week</p>
+            <p>Day</p>
+          </span>
+        </div>
+        <div>
+          <div>
+            <h2>
+              {new Date(date).toLocaleString("default", { month: "long" })}
+            </h2>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
 
-        {/* Pie Chart of Results */}
-        <Grid2 item xs={12} md={6} lg={4}>
-          <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
-            <CardHeader title="Performance Distribution" />
-            <CardContent>
-              {pieData.labels ? (
-                <Pie data={pieData} />
-              ) : (
-                <Typography align="center">
-                  No data available for the pie chart
-                </Typography>
-              )}
-            </CardContent>
-          </Card>
-        </Grid2>
-      </Grid2>
-    </Container>
+      {/* RIGHT SECTION */}
+      <section></section>
+    </div>
   );
 };
 
-export default UserDashboard;
+export default Userdashboard;

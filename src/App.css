@@ -3,35 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* body {
-  background-color: #f9fafb; /* Lighter background */
-  /* background-attachment: fixed; */
-  /* min-height: 100vh; */
-  /* width: 100vw; */
-  /* font-family: "Roboto", sans-serif; Default font with fallback */
-  /* padding: 0; */
-  /* margin: 0; */
-  /* box-sizing: border-box; */
-/* } */ 
-
-.MuiContainer-root {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: "Roboto", sans-serif; /* Use Roboto for consistency in the MUI container */
-}
-
-@keyframes slide-up {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(90%);
-  }
-}
-
-.intro-slide-up {
-  animation: slide-up 0.6s ease-out forwards;
-}
