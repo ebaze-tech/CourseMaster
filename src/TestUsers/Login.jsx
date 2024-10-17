@@ -1,64 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react"; // Import useContext
 import { useNavigate } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import Bg from "../Components/Bg";
 import Logo from "../assets/UI_LOGO.png";
 import API from "../api";
+import { AuthContext } from "../token"; // Import AuthContext
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, seetError] = useState("");
+  const [error, setError] = useState(""); // Fixed typo from 'seetError'
   const [isLoading, setIsLoading] = useState(false);
-  const [showLoginForm, setShowLoginForm] = useState(false);
+  // const [showLoginForm, setShowLoginForm] = useState(false);
 
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Get the login function from AuthContext
 
   // Login submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    seetError("");
+    setError("");
 
-    // Form input valiation
+    // Form input validation
     if (!email && !password) {
-      seetError("Input email and password to login.");
+      setError("Input email and password to login.");
       return;
     }
 
     if (!email) {
-      seetError("Email is required for login.");
+      setError("Email is required for login.");
+      return;
     } else if (!password) {
-      seetError("Password is required for login.");
+      setError("Password is required for login.");
       return;
     }
+
     const loginData = { email, password };
 
     try {
       setIsLoading(true);
       console.log("Submitting login details: ", loginData);
       const { data } = await API.post("/auth/login", loginData);
-      console.log("Login successful, token: ", data.token);
-      localStorage.setItem("token", data.token);
-      navigate("/user/dashboard");
+      if (data.token) {
+        login(data.token);
+        navigate("/user/dashboard");
+      } else {
+        setError("Login failed. No token received.");
+      }
     } catch (error) {
       console.error("Login error: ", error);
-      seetError(
-        error.response?.data?.message ||
-          "Server error. Please refresh the page."
-      );
+      if (error.response) {
+        setError(
+          error.response?.data?.message ||
+            "Server error. Please refresh the page."
+        );
+      } else {
+        setError("Network error. Please check your connection.");
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Swipeable lbrary config for swiping gesture
+  // Swipeable library config for swiping gesture
   const handlers = useSwipeable({
     onSwipedUp: () => setShowLoginForm(true),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
   return (
     <div className="body" {...handlers}>
       <div className="container">
@@ -100,7 +110,6 @@ const Login = () => {
               {isLoading ? "Please wait...." : "Login"}
             </button>
           </form>
-          {/* </div> */}
         </div>
       </div>
     </div>

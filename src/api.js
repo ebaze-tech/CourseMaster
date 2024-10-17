@@ -3,7 +3,7 @@ import axios from "axios";
 // Set the base URL for all API requests
 const API = axios.create({
   // baseURL: "https://coursemasterserver.onrender.com", // Backend API URL
-  baseURL: "http://localhost:5000", // Backend API URL
+  baseURL: "http://localhost:8080", // Backend API URL
 });
 
 // Add JWT token to every request (if available)

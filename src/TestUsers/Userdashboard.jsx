@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../token"; // Adjust the import path as needed
 import "./Userdashboard.css";
 import UILOGO from "../assets/UI_LOGO.png";
 import TAKE_TEST from "../assets/TAKE_TEST.svg";
@@ -9,90 +10,75 @@ import RESULTS from "../assets/RESULTS.svg";
 import DISCUSSION from "../assets/DISCUSSION.svg";
 import STUDY from "../assets/STUDY.svg";
 import SUPPORT from "../assets/UNION.svg";
-import PROFILEPICTURE from "../assets/PROFILEPICTURE.png";
-import GHOSTPICTURE from "../assets/GHOSTPICTURE.png";
-import BENZENE from "../assets/BENZENE.png";
-import TESA from "../assets/TESA.png";
-import NICESA from "../assets/NICESA.png";
-import BACKICON from "../assets/BACKICON.svg";
-import FORWARDICON from "../assets/FORWARDICON.svg";
 import API from "../api";
 
 const Userdashboard = () => {
-  const [data, setData] = useState([]);
-  const [date, setDate] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [scheduleData, setScheduleData] = useState([]);
-  const [userDetails, setUserDetails] = useState({});
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [userData, setUserData] = useState([]);
+  const [timeData, setTimeData] = useState([]);
 
-  // API REQUEST TO FETCH USER DETAILS
+  const { user } = useContext(AuthContext);
+  const userId = user ? user.id : null;
+
   useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        const userDetailsResponse = await API.get("/fetchuser/:id");
-        if (!userDetailsResponse) {
-          throw new Error("Failed to fetch user details");
-        }
-        const userDetails = await userDetailsResponse.json();
-        setUserDetails(userDetails);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchUserDetails();
-  }, []);
-
-  // API REQUEST TO FETCH TEST SCHEDULES
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await API.get("/test/all");
-        if (!response) {
-          throw new Error("Failed to fetch test schedule data");
-        }
-        const result = await response.json();
-        setScheduleData(result);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // API REQUEST TO FETCH DATE DISPLAYED ON THE DASHBOARD
-  useEffect(() => {
+    // Async function to fetch the date on dashboard
     const fetchDashboardDate = async () => {
+      setLoading(true);
       try {
-        const dateResponse = await API.get("/current-datetime");
-        if (!dateResponse) {
-          throw new Error("Failed to fetch date");
+        const response = await API.get("/current-datetime");
+        console.log(response);
+        if (response.data) {
+          console.log(response.data);
+          setTimeData(response.data);
+          localStorage.setItem("timeData", JSON.stringify(response.data));
+        } else {
+          throw new Error("Invalid data structure from API");
         }
-        const dateData = await dateResponse.json(); // Await the JSON parsing
-        setDate(dateData.datetime);
+        setLoading(false);
       } catch (error) {
-        setError(error.message);
-      } finally {
+        console.error(error.message);
+        setError(error.message || "Error updating date");
         setLoading(false);
       }
     };
     fetchDashboardDate();
   }, []);
 
-  // Function to format the date into a more user-friendly format
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return date.toLocaleDateString(undefined, options);
-  };
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      console.log("Stored user data: ", storedUserData);
+      setUserData(JSON.parse(storedUserData));
+      return;
+    }
 
-  if (loading) return <div>Loading....</div>;
-  if (error) return <div>Error: {error}</div>;
+    // Async function to fetch the details of the user
+    const fetchUserData = async () => {
+      if (!userId) {
+        console.error("User ID not found.");
+        setError("User ID not found.");
+        setLoading(false);
+        return;
+      }
+      setLoading(true);
+      try {
+        const response = await API.get(`/userdetail/fetchuser/${userId}`);
+        console.log(response.data);
+        setUserData(response.data);
+        localStorage.setItem("userData", JSON.stringify(response.data));
+        setLoading(false);
+      } catch (error) {
+        console.error(error.message);
+        setError(error.message || "Error fetching user data");
+        setLoading(false);
+      }
+    };
+    fetchUserData();
+  }, [userId]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="dashboard-container">
@@ -108,31 +94,31 @@ const Userdashboard = () => {
             <p>Take Test</p>
           </div>
           <div>
-            <img src={NOTIFICATION} alt="" />
+            <img src={NOTIFICATION} alt="Notifications" />
             <p>Notifications</p>
           </div>
           <div>
-            <img src={SCHEDULE} alt="" />
+            <img src={SCHEDULE} alt="Test Schedule" />
             <p>Test Schedule</p>
           </div>
           <div>
-            <img src={SUBMISSONS} alt="" />
+            <img src={SUBMISSONS} alt="Submissions" />
             <p>Submissions</p>
           </div>
           <div>
-            <img src={RESULTS} alt="" />
+            <img src={RESULTS} alt="Results" />
             <p>Results & Performance</p>
           </div>
           <div>
-            <img src={DISCUSSION} alt="" />
+            <img src={DISCUSSION} alt="Discussion Forum" />
             <p>Discussion Forum</p>
           </div>
           <div>
-            <img src={STUDY} alt="" />
+            <img src={STUDY} alt="Study Materials" />
             <p>Study Materials & Resources</p>
           </div>
           <div>
-            <img src={SUPPORT} alt="" />
+            <img src={SUPPORT} alt="Support & Help" />
             <p>Support & Help Center</p>
           </div>
         </div>
@@ -141,38 +127,16 @@ const Userdashboard = () => {
       {/* MIDDLE SECTION */}
       <section>
         <div>
-          <div>
-            <h1>Welcome {userDetails.name}!</h1>
-            <p>Matric No: {userDetails.number}</p>
-            <p>Faculty: {userDetails.faculty}</p>
-            <p>Department: {userDetails.department}</p>
-            <p>Level: {userDetails.level}</p>
-          </div>
-          <div>
-            <p>{formatDate(date)}</p> {/* Display formatted date */}
-          </div>
+          <h1>Welcome {userData.username}!</h1>
+          <p>Matric No: {userData.matricNumber}</p>
+          <p>Faculty: {userData.faculty}</p>
+          <p>Department: {userData.department}</p>
+          <p>Level: {userData.level}</p>
         </div>
         <div>
-          <h2>Test Schedule</h2>
-          <span>
-            <p>Month</p>
-            <p>Week</p>
-            <p>Day</p>
-          </span>
-        </div>
-        <div>
-          <div>
-            <h2>
-              {new Date(date).toLocaleString("default", { month: "long" })}
-            </h2>
-          </div>
-          <div></div>
-          <div></div>
+          <p>{timeData.formattedDate}</p>
         </div>
       </section>
-
-      {/* RIGHT SECTION */}
-      <section></section>
     </div>
   );
 };
