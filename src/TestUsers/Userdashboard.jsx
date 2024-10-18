@@ -10,10 +10,10 @@ import RESULTS from "../assets/RESULTS.svg";
 import DISCUSSION from "../assets/DISCUSSION.svg";
 import STUDY from "../assets/STUDY.svg";
 import SUPPORT from "../assets/UNION.svg";
-import Forwardicon from "../assets/FORWARDICON.svg";
-import Backicon from "../assets/BACKICON.svg";
 import PROFILEPICTURE from "../assets/PROFILEPICTURE.png";
 import API from "../api";
+import ErrorPage from "./ErrorPage";
+import SearchOutlined from "@mui/icons-material/SearchOutlined";
 
 const Userdashboard = () => {
   const [loading, setLoading] = useState(false);
@@ -21,8 +21,6 @@ const Userdashboard = () => {
   const [userData, setUserData] = useState({});
   const [timeData, setTimeData] = useState({});
   const [scheduleData, setScheduleData] = useState([]);
-  const [schedules, setSchedules] = useState([]);
-  // const [ setSelectedView] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedWeek, setSelectedWeek] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
@@ -30,31 +28,26 @@ const Userdashboard = () => {
   const { user } = useContext(AuthContext);
   const userId = user ? user.id : null;
 
+  // Fetch date and time on dashboard load
   useEffect(() => {
-    // Async function to fetch the date on dashboard
     const fetchDashboardDate = async () => {
       setLoading(true);
       try {
         const response = await API.get("/current-datetime");
-        console.log(response);
-        if (response.data) {
-          setTimeData(response.data);
-          localStorage.setItem("timeData", JSON.stringify(response.data));
-        } else {
-          throw new Error("Invalid data structure from API");
-        }
-        setLoading(false);
+        setTimeData(response.data);
+        localStorage.setItem("timeData", JSON.stringify(response.data));
       } catch (error) {
-        console.error(error.message);
         setError(
           "Unable to load current date and time. Please try again later."
         );
+      } finally {
         setLoading(false);
       }
     };
     fetchDashboardDate();
   }, []);
 
+  // Fetch user data when component mounts
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
     if (storedUserData) {
@@ -62,12 +55,9 @@ const Userdashboard = () => {
       return;
     }
 
-    // Async function to fetch the details of the user
     const fetchUserData = async () => {
       if (!userId) {
-        console.error("User ID not found.");
         setError("User ID not found.");
-        setLoading(false);
         return;
       }
       setLoading(true);
@@ -75,16 +65,58 @@ const Userdashboard = () => {
         const response = await API.get(`/userdetail/fetchuser/${userId}`);
         setUserData(response.data);
         localStorage.setItem("userData", JSON.stringify(response.data));
-        setLoading(false);
       } catch (error) {
-        console.error(error.message);
-        setError(error.message || "Error fetching user data");
+        setError("Error fetching user data");
+      } finally {
         setLoading(false);
       }
     };
     fetchUserData();
   }, [userId]);
 
+  // Fetch schedules based on search query
+  useEffect(() => {
+    const fetchTestSchedules = async () => {
+      if (!selectedMonth && !selectedWeek && !selectedDay) return;
+
+      setLoading(true);
+      try {
+        let query = [];
+        if (selectedMonth) query.push(`month=${selectedMonth}`);
+        if (selectedWeek) query.push(`week=${selectedWeek}`);
+        if (selectedDay) query.push(`day=${selectedDay}`);
+
+        const queryString = query.length ? `?${query.join("&")}` : "";
+        const response = await API.get(`/schedule/previous${queryString}`);
+
+        if (!response.data || response.data.length === 0) {
+          setError("No test schedule found for selected query.");
+        } else {
+          setScheduleData(response.data);
+        }
+      } catch (error) {
+        setError(
+          "Unable to load previous test schedules. Please try again later."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestSchedules();
+  }, [selectedMonth, selectedWeek, selectedDay]);
+
+  // Refresh the schedule
+  const handleRefresh = () => {
+    setSelectedMonth("");
+    setSelectedWeek("");
+    setSelectedDay("");
+    // setScheduleData([]);
+    setError(null);
+  };
+  const handleReload = () => {
+    window.location.reload();
+  };
   useEffect(() => {
     // Async function to fetch test schedule
     const fetchUserScheduleData = async () => {
@@ -108,64 +140,29 @@ const Userdashboard = () => {
         console.error(error.message);
         setError(error.message || "Error fetching user test schedule");
         setLoading(false);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUserScheduleData();
   }, []);
 
-  useEffect(() => {
-    const fetchTestSchedules = async () => {
-      setLoading(true);
-      try {
-        const response = await API.get(
-          `/schedule/previous?view=${selectedView}&month=${selectedMonth}&week=${selectedWeek}&day=${selectedDay}`
-        );
-        console.log(response);
-        if (!response.data) {
-          setError(() => "No test schedule found for selected query.");
-          setLoading(false);
-          return;
-        } else if (response.data) {
-          setSchedules(response.data);
-          setLoading(false);
-          return;
-        } else {
-          setLoading(false);
-          throw new Error("Could not fetch previous test schedules");
-        }
-      } catch (error) {
-        console.error(error);
-        setError(
-          "Unable to load previous test schedules. Please try again later."
-        );
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (selectedMonth || selectedWeek || selectedDay) {
-      fetchTestSchedules();
-    }
-  }, [selectedMonth, selectedWeek, selectedDay]);
-
-  useEffect(() => {
-    if (!scheduleData && !loading) {
-      setError(() => "No schedule data available. Check back later.");
-    }
-  }, [scheduleData, loading]);
   return (
     <div className="dashboard-container">
       {/* LEFT SECTION */}
       <section className="left-section">
         <div className="left-section-top">
           <img src={UILOGO} alt="Logo of The University of Ibadan" />
+
           <h2>UI TEST PLATFORM</h2>
         </div>
         <div className="left-section-bottom">
           <div className="left-section-bottom-items .user">
             <img src={PROFILEPICTURE} className="test" alt="Take a test" />
-            <p className="username">{userData.username}</p>
+            <div className="userdetails">
+              <p>{userData.username}</p>
+              <p>{userData.email}</p>
+            </div>
           </div>
           <div className="left-section-bottom-items">
             <img src={TAKE_TEST} alt="Take a test" />
@@ -199,12 +196,14 @@ const Userdashboard = () => {
             <img src={SUPPORT} alt="Support & Help" />
             <p>Support & Help Center</p>
           </div>
+          <div className="left-section-bottom-items">
+            <p>&copy; University of Ibadan 2024</p>
+          </div>
         </div>
       </section>
 
       {/* MIDDLE SECTION */}
       <section className="middle-section">
-        {/* USER INFO SECTION */}
         <div className="middle-section-top">
           <div className="middle-section-top-left">
             <h1>
@@ -248,66 +247,61 @@ const Userdashboard = () => {
         {/* TEST SCHEDULE SEARCH SECTION */}
         <div className="middle-section-middle">
           <h2>Test Schedule</h2>
-          {/* SEARCH PREVIOUS AND FUTURE TEST SCHEDULES */}
           <div className="scheduleselect">
-            <label>
-              Month:
-              <input
-                type="text"
-                value={selectedMonth}
-                onChange={(e) => setSelectedMonth(e.target.value)}
-                placeholder="Enter month"
-              />
-            </label>
-            <label>
-              Month:
-              <input
-                type="text"
-                value={selectedWeek}
-                onChange={(e) => setSelectedWeek(e.target.value)}
-                placeholder="Enter week"
-              />
-            </label>
-            <label>
-              Month:
-              <input
-                type="text"
-                value={selectedDay}
-                onChange={(e) => setSelectedDay(e.target.value)}
-                placeholder="Enter day"
-              />
-            </label>
-            <button onClick={() => {}} Search></button>
+            <div className="search">
+              <div className="month">
+                <label>Month</label>
+                <input
+                  type="text"
+                  value={selectedMonth}
+                  onChange={(e) => setSelectedMonth(e.target.value)}
+                  placeholder="YYYY-MM"
+                />
+              </div>
+              <div className="week">
+                <label>Week</label>
+                <input
+                  type="text"
+                  value={selectedWeek}
+                  onChange={(e) => setSelectedWeek(e.target.value)}
+                  placeholder="YYYY-WW"
+                />
+              </div>
+              <div className="day">
+                <label>Day</label>
+                <input
+                  type="text"
+                  value={selectedDay}
+                  onChange={(e) => setSelectedDay(e.target.value)}
+                  placeholder="YYYY-MM-DD"
+                />
+              </div>
+            </div>
+            <div className="btn">
+              <button className="refresh" onClick={handleRefresh}>
+                Refresh Schedules
+              </button>
+              <button className="reload" onClick={handleReload}>
+                Reload Page
+              </button>
+            </div>
           </div>
         </div>
 
         <div className="middle-section-bottom">
-          <div className="middle-section-bottom-top">
+          {/* <div className="middle-section-bottom-top">
             <h2 className="text">
               {timeData.formattedMonth ? timeData.formattedMonth : "Loading..."}
             </h2>
-            <div className="history">
-              {/* SEARCH EITHER TODAY OR BY PREVIOUS HISTORY OR BY FUTURE SCHEDULES*/}
-              <img
-                src={Forwardicon}
-                onClick={() => console.log("Backward Clicked")}
-                alt="Backward"
-              />
-              <p>Today</p>
-              <img
-                src={Backicon}
-                onClick={() => console.log("Forward clicked.")}
-                alt="Forward"
-              />
-            </div>
-          </div>
+          </div> */}
           <div className="middle-section-bottom-bottom">
             {loading ? (
-              <p className="middle-section-bottom-bottom-item">Loading...</p>
-            ) : error ? (
-              <p className="middle-section-bottom-bottom-item">
-                {`Error: ${error}`}
+              <p className="middle-section-bottom-bottom-item-loading">
+                Loading...
               </p>
+            ) : error ? (
+              // <p className="middle-section-bottom-bottom-item-error">{`Error: ${error}`}</p>
+              <ErrorPage />
             ) : (
               <>
                 {scheduleData.map((schedule, index) => (
@@ -347,7 +341,18 @@ const Userdashboard = () => {
       </section>
 
       {/* RIGHT SECTION */}
-      <section className="right-section">afakf a</section>
+      <section className="right-section">
+        <div className="right-section-top">
+          <h1>Discussion Forum</h1>
+
+          <div>
+            <SearchOutlined/>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+      </section>
     </div>
   );
 };

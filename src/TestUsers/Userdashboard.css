@@ -31,7 +31,7 @@ html {
   justify-content: center;
   align-items: center;
   gap: 3vmin;
-  width: 50vmin;
+  width: 40vmin;
   height: 15vmin;
   padding: 5vmin 0;
 }
@@ -48,6 +48,9 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 3.3vmin;
+  padding: 5px;
+  text-align: center;
 }
 .left-section-bottom {
   height: 85vmin;
@@ -59,7 +62,7 @@ html {
   gap: 5vmin;
 }
 .left-section-bottom-items {
-  width: 50vmin;
+  width: 40vmin;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -68,16 +71,20 @@ html {
   gap: 10px;
 }
 .left-section-bottom-items .test {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
 }
 
 .left-section-bottom-items img {
   width: 32px;
   height: 24px;
 }
-.left-section-bottom-items p {
-  font-size: 2.5vmin;
+.left-section-bottom-items .userdetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vmin;
   text-align: center;
 }
 
@@ -94,8 +101,8 @@ html {
   flex-direction: row;
   justify-content: center;
   /* align-items: center; */
-  width: 130vmin;
-  height: 30vmin;
+  width: 140vmin;
+  height: 100vmin;
   background: burlywood;
   gap: 35vmin;
 }
@@ -115,6 +122,7 @@ html {
   justify-content: flex-end;
   align-items: flex-start;
   margin-top: 2rem;
+  font-size: 2vmin;
 }
 .middle-section-top-left .userdata {
   display: flex;
@@ -132,137 +140,160 @@ html {
   justify-content: center;
   align-items: center;
   background: green;
-  width: 130vmin;
-  height: 10vmin;
-  gap: 30vmin;
+  width: 140vmin;
+  height: 100vmin;
+  gap: 10vmin;
 }
 .middle-section-middle h2 {
-  font-size: 3.5vmin;
-  text-align: center;
-}
-.middle-section-middle p {
-  cursor: pointer;
-  width: 90px;
-  background: steelblue;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-}
-.middle-section-middle p:hover {
-  background: gray;
-}
-.middle-section-middle .scheduleselect {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2vmin;
-  background: darkred;
-  width: 25vw;
-  height: 5vh;
-  margin-right: 10px;
-  border-radius: 20px;
-}
-
-.middle-section-middle .week {
-  background: chartreuse;
-  /* padding: 0 10px; */
-  height: inherit;
-  border-radius: 20px;
-  text-align: center;
+  font-size: 3vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* margin-right: 95px; */
 }
+.middle-section-middle .scheduleselect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.middle-section-middle .scheduleselect .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.middle-section-middle .scheduleselect .month,
+.middle-section-middle .scheduleselect .week,
+.middle-section-middle .scheduleselect .day {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: aquamarine;
+  height: 48px;
+  padding: 8px;
+  gap: 5px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.middle-section-middle .scheduleselect .btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.middle-section-middle .scheduleselect .btn .refresh,
+.middle-section-middle .scheduleselect .btn .reload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* width: 20vmin; */
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 15px;
+  background: maroon;
+}
+/* .middle-section-middle .scheduleselect .btn .reload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 40vmin;
+  padding: 0 20vmin;
+  /* font-size: 2.5vmin; *
+  background: navy;
+} 
+/*.middle-section-middle .scheduleselect .month input{
+  /* border-radius: 20px; 
+
+.middle-section-middle .scheduleselect .week {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: darkorchid;
+  height: 48px;
+  padding: 5px;
+  gap: 5px;
+  font-size: 2vmin;
+}
+.middle-section-middle .scheduleselect .day {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: yellow;
+  height: 48px;
+  padding: 5px;
+  gap: 5px;
+  font-size: 2vmin;
+} */
 .middle-section-bottom {
-  background: rgb(255, 0, 128);
-  width: 130vmin;
-  height: 90vmin;
+  /* background: rgb(255, 0, 128); */
+  width: 140vmin;
+  height: 70vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* gap: 2vmin; */
 }
-.middle-section-bottom-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 45vmin;
-  background: crimson;
-  height: 10vmin;
-  width: inherit;
-  text-align: center;
-  /* margin-bottom: 50px; */
-}
-.middle-section-bottom-top .text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 3.2vmin;
-}
-.middle-section-bottom-top .history {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1vmin;
-  margin-right: 2rem;
-}
-.middle-section-bottom-top .history img {
-  width: 32px;
-  height: 32px;
-}
-.middle-section-bottom-top .history p {
-  background: whitesmoke;
-  width: 25vmin;
-  padding: 5px 20px;
-  text-align: center;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 .middle-section-bottom-bottom {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: darkblue;
-  height: 66vmin;
-  width: 50vmin;
-  border-radius: 20px;
-  padding: 0 50vmin;
-  gap: 20px;
+  height: inherit;
   width: inherit;
+  padding: 0 1vmin;
+  gap: 20px;
+  max-width: inherit;
+  flex-wrap: wrap;
 }
 .middle-section-bottom-bottom-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* flex: 1  calc(33.33% - 100px); */
   background: wheat;
-  height: 40vmin;
-  width: 40vmin;
+  height: 20vmin;
+  width: 25vmin;
   text-align: center;
-  gap: 10px;
+  /* padding: 0 0px; */
   border-radius: 20px;
 }
 .middle-section-bottom-bottom-item p {
-  width: 40vmin;
+  /* width: inherit; */
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.middle-section-bottom-bottom-item-error {
+  width: 100%;
+  /* padding: 0 5vmin; */
+  height: inherit;
+  background: red;
+  font-size: 3vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.middle-section-bottom-bottom-item-loading {
 }
 /*     <div className="test-schedule-list">
       {scheduleData.map((schedule, index) => (
