@@ -7,9 +7,274 @@
 }
 body,
 html {
-  width: 100%;
+  width: 100vw;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-section-top {
+  background: #3cb0ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vmin;
+  width: 50vmin;
+  height: 15vmin;
+  padding: 5vmin 0;
+}
+.left-section-top img {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-section-top h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-section-bottom {
+  height: 85vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  gap: 5vmin;
+}
+.left-section-bottom-items {
+  width: 50vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  padding-left: 15px;
+  gap: 10px;
+}
+.left-section-bottom-items .test {
+  width: 48px;
+  height: 48px;
+}
+
+.left-section-bottom-items img {
+  width: 32px;
+  height: 24px;
+}
+.left-section-bottom-items p {
+  font-size: 2.5vmin;
+  text-align: center;
+}
+
+/* MIDDLE SECTION */
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.middle-section-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  width: 130vmin;
+  height: 30vmin;
+  background: burlywood;
+  gap: 35vmin;
+}
+.middle-section-top-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.middle-section-top-left h1 {
+  font-size: 5vmin;
+  text-align: left;
+}
+.middle-section-top .date {
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+.middle-section-top-left .userdata {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.middle-section-top-left p {
+  font-size: 2.5vmin;
+}
+.middle-section-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: green;
+  width: 130vmin;
+  height: 10vmin;
+  gap: 30vmin;
+}
+.middle-section-middle h2 {
+  font-size: 3.5vmin;
+  text-align: center;
+}
+.middle-section-middle p {
+  cursor: pointer;
+  width: 90px;
+  background: steelblue;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.middle-section-middle p:hover {
+  background: gray;
+}
+.middle-section-middle .scheduleselect {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vmin;
+  background: darkred;
+  width: 25vw;
+  height: 5vh;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.middle-section-middle .week {
+  background: chartreuse;
+  /* padding: 0 10px; */
+  height: inherit;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.middle-section-bottom {
+  background: rgb(255, 0, 128);
+  width: 130vmin;
+  height: 90vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 2vmin; */
+}
+.middle-section-bottom-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 45vmin;
+  background: crimson;
+  height: 10vmin;
+  width: inherit;
+  text-align: center;
+  /* margin-bottom: 50px; */
+}
+.middle-section-bottom-top .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3.2vmin;
+}
+.middle-section-bottom-top .history {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vmin;
+  margin-right: 2rem;
+}
+.middle-section-bottom-top .history img {
+  width: 32px;
+  height: 32px;
+}
+.middle-section-bottom-top .history p {
+  background: whitesmoke;
+  width: 25vmin;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.middle-section-bottom-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: darkblue;
+  height: 66vmin;
+  width: 50vmin;
+  border-radius: 20px;
+  padding: 0 50vmin;
+  gap: 20px;
+  width: inherit;
+}
+.middle-section-bottom-bottom-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: wheat;
+  height: 40vmin;
+  width: 40vmin;
+  text-align: center;
+  gap: 10px;
+  border-radius: 20px;
+}
+.middle-section-bottom-bottom-item p {
+  width: 40vmin;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*     <div className="test-schedule-list">
+      {scheduleData.map((schedule, index) => (
+        <div key={index} className="schedule-item">
+          <h3>Course: {schedule.course || 'Empty course'}</h3>
+          <p>Lecturer: {schedule.lecturerName || 'Empty lecturer name'}</p>
+          <p>Description: {schedule.description || 'Empty description'}</p>
+          <p>Time: {schedule.time || 'Empty time'}</p>
+          <p>Duration: {schedule.duration || 'Empty duration'}</p>
+        </div>
+      ))}
+    </div> */
 /* TOP-LEFT SECTION BG #3CB0FF */
 
 /* CARD-1 BG #BBFAF7 */

@@ -100,7 +100,7 @@ const NotFoundPage = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => navigate("/admin")}
+            onClick={() => navigate("/")}
             sx={{
               padding: "10px 20px",
               fontSize: "1.2rem",
