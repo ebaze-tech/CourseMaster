@@ -1,18 +1,22 @@
 import React, { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../token"; // Adjust the import path as needed
+import { useParams, Link } from "react-router-dom";
+import { AuthContext } from "../Login/AuthContext"; // Adjust the import path as needed
 import "./Userdashboard.css";
 import UILOGO from "../assets/UI_LOGO.png";
 import TAKE_TEST from "../assets/TAKE_TEST.svg";
 import NOTIFICATION from "../assets/NOTIFICATION.svg";
-import SCHEDULE from "../assets/CALENDAR.svg";
+import SCHEDULE from "../assets/CALENDAR_.svg";
+import CALENDAR from "../assets/CALENDAR.svg";
 import SUBMISSONS from "../assets/SUBMISSIONS.svg";
 import RESULTS from "../assets/RESULTS.svg";
 import DISCUSSION from "../assets/DISCUSSION.svg";
 import STUDY from "../assets/STUDY.svg";
 import SUPPORT from "../assets/UNION.svg";
 import PROFILEPICTURE from "../assets/PROFILEPICTURE.png";
-import API from "../api";
-import ErrorPage from "./ErrorPage";
+import ControlPointRoundedIcon from "@mui/icons-material/ControlPointRounded";
+// import { ReactComponent as Chatadd } from "../assets/Vector_4.svg";
+import API from "../../api";
+import ErrorPage from "../Miscellaneous/ErrorPage";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 
 const Userdashboard = () => {
@@ -24,9 +28,12 @@ const Userdashboard = () => {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedWeek, setSelectedWeek] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
-
+  // const [viewOneTest, setViewOneTest] = useState("");
   const { user } = useContext(AuthContext);
   const userId = user ? user.id : null;
+
+  // const { id } = useParams();
+  // View Test Info by ID
 
   // Fetch date and time on dashboard load
   useEffect(() => {
@@ -147,6 +154,35 @@ const Userdashboard = () => {
     fetchUserScheduleData();
   }, []);
 
+  useEffect(() => {
+    //Asyn function to fetch inapp chat messages
+    const fetchChatMessage = async () => {
+      setLoading(true);
+      try {
+        const response = await API.get("/directmessages/chats");
+        console.log(response);
+        if (!response.data) {
+          setError(() => "No chats...");
+          setLoading(false);
+          return;
+        } else if (response.data) {
+          setChatData(response.data);
+          setLoading(false);
+          return;
+        } else {
+          setLoading(false);
+          throw new Error("Could not fetch chat data.");
+        }
+      } catch (error) {
+        console.error(error.message);
+        setError(error.message ? error.message : "Failed to fetch chats...");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchChatMessage();
+  }, []);
+
   return (
     <div className="dashboard-container">
       {/* LEFT SECTION */}
@@ -238,6 +274,7 @@ const Userdashboard = () => {
             </div>
           </div>
           <div className="date">
+            <img src={CALENDAR} alt="Date" />
             <p>
               {timeData.formattedDate ? timeData.formattedDate : "Loading..."}
             </p>
@@ -315,23 +352,28 @@ const Userdashboard = () => {
                         ? schedule.course
                         : "No course available"}
                     </h3>
-                    <p>
+                    {/* <p>
                       Lecturer:
                       {schedule.lecturerName
                         ? schedule.lecturerName
                         : "Empty lecturer name"}
-                    </p>
-                    <p>
+                    </p> */}
+                    {/* <p>
                       Description:
                       {schedule.description
                         ? schedule.description
                         : "Empty description"}
-                    </p>
+                    </p> */}
                     <p>Time: {schedule.time ? schedule.time : "Empty time"}</p>
-                    <p>
+                    {/* <p>
                       Duration:
                       {schedule.duration ? schedule.duration : "Empty duration"}
-                    </p>
+                    </p> */}
+                    <button className="btn">
+                      <Link to={`/user/schedule/view/${schedule._id}`}>
+                        View Test Schedule
+                      </Link>
+                    </button>
                   </div>
                 ))}
               </>
@@ -346,8 +388,38 @@ const Userdashboard = () => {
           <h1>Discussion Forum</h1>
 
           <div>
-            <SearchOutlined/>
+            <SearchOutlined />
             <input type="text" placeholder="Search" />
+            <ControlPointRoundedIcon />
+            {/*   CHAT API */}
+            <div className="chat-section">
+              {loading ? (
+                <p className="middle-section-bottom-bottom-item-loading">
+                  Loading...
+                </p>
+              ) : error ? (
+                <ErrorPage />
+              ) : (
+                <>
+                  {chatData.map((chat, index) => (
+                    <div key={index} className="">
+                      <img
+                        src={chatData.profilepicture}
+                        alt="Profile picture"
+                      />
+                      <div>
+                        <h3>
+                          {chatData.chatName ? chatData.chatName : "Loading..."}
+                        </h3>
+                        <p>
+                          {chatData.message ? chatData.message : "Loading..."}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
           </div>
         </div>
         <div></div>

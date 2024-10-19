@@ -14,8 +14,8 @@ import {
   Alert,
   Grid2,
 } from "@mui/material";
-import API from "../api";
-import Timer from "./Timer";
+import API from "../../api";
+import Timer from "../Miscellaneous/Timer";
 
 const TestForm = ({ category }) => {
   const [questions, setQuestions] = useState([]);

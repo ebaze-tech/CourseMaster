@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Typography, Box, Grid2 } from "@mui/material";
-import API from "../api";
+import API from "../../api";
 import TestForm from "./TestPage";
 
 const CategorySelection = () => {

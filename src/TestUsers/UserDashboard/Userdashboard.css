@@ -17,6 +17,7 @@ html {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  /* overflow: hidden; */
 }
 .left-section {
   display: flex;
@@ -31,7 +32,7 @@ html {
   justify-content: center;
   align-items: center;
   gap: 3vmin;
-  width: 40vmin;
+  width: 45vmin;
   height: 15vmin;
   padding: 5vmin 0;
 }
@@ -62,7 +63,7 @@ html {
   gap: 5vmin;
 }
 .left-section-bottom-items {
-  width: 40vmin;
+  width: 45vmin;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -119,9 +120,9 @@ html {
 .middle-section-top .date {
   text-align: center;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   font-size: 2vmin;
 }
 .middle-section-top-left .userdata {
@@ -240,7 +241,7 @@ html {
 .middle-section-bottom {
   /* background: rgb(255, 0, 128); */
   width: 140vmin;
-  height: 70vmin;
+  height: 200vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -254,9 +255,9 @@ html {
   justify-content: space-between;
   align-items: center;
   background: darkblue;
-  height: inherit;
+  height: 68vh;
   width: inherit;
-  padding: 0 1vmin;
+  padding: 0 10px;
   gap: 20px;
   max-width: inherit;
   flex-wrap: wrap;
@@ -266,12 +267,12 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* flex: 1  calc(33.33% - 100px); */
+  flex: 1 1 calc(25% - 50px);
   background: wheat;
-  height: 20vmin;
+  height: 10vmin;
   width: 25vmin;
   text-align: center;
-  /* padding: 0 0px; */
+  padding: 10px;
   border-radius: 20px;
 }
 .middle-section-bottom-bottom-item p {

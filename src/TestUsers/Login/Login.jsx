@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react"; // Import useContext
 import { useNavigate } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 import Logo from "../assets/UI_LOGO.png";
-import API from "../api";
-import { AuthContext } from "../token"; // Import AuthContext
+import API from "../../api";
+import { AuthContext } from "./AuthContext"; // Import AuthContext
 import "./Login.css";
 
 const Login = () => {

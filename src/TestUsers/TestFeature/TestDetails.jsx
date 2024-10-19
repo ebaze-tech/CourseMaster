@@ -17,7 +17,7 @@ import { green, red, grey } from "@mui/material/colors";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useParams } from "react-router-dom";
-import API from "../api";
+import API from "../../api";
 
 const TestDetails = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ const TestDetails = () => {
   useEffect(() => {
     const fetchTest = async () => {
       try {
-        const { data } = await API.get(`/dashboard/user/test/result/${id}`);
+        const { data } = await API.get(`/dasboard/user/test/result/${id}`);
         setTest(data);
       } catch (error) {
         console.error("Error fetching test details:", error);
@@ -78,33 +78,7 @@ const TestDetails = () => {
               Submitted At: {new Date(test.createdAt).toLocaleString()}
             </Typography>
             <Typography color="textSecondary" mt={1}>
-              Total Score:
-              <Chip
-                label={test.totalScore}
-                color={
-                  Array.isArray(test.totalScore) && test.totalScore.length === 0
-                    ? "error"
-                    : test.totalScore === 0
-                    ? "error"
-                    : "primary"
-                }
-                sx={{
-                  backgroundColor:
-                    Array.isArray(test.totalScore) &&
-                    test.totalScore.length === 0
-                      ? red[500]
-                      : test.totalScore === 0
-                      ? red[500]
-                      : "primary",
-                  color:
-                    (Array.isArray(test.totalScore) &&
-                      test.totalScore.length === 0) ||
-                    test.totalScore === 0
-                      ? "white"
-                      : "inherit", // Ensure text is visible on red background
-                  marginLeft: 1,
-                }}
-              />
+              Total Score: <Chip label={test.totalScore} color="primary" />
             </Typography>
           </Box>
 

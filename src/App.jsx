@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginForm from "./TestUsers/Login";
+import LoginForm from "./TestUsers/Login/Login";
 // import RegisterForm from "./TestUsers/RegisterForm";
-import CategorySelection from "./TestUsers/CategorySelection";
-import SubmittedTests from "./TestUsers/SubmittedTests";
+// import CategorySelection from "./TestUsers/";
+import SubmittedTests from "./TestUsers/TestFeature/SubmittedTests";
 import "./App.css";
-import TestForm from "./TestUsers/TestPage";
-import UserDashboard from "./TestUsers/Userdashboard";
+import TestForm from "./TestUsers/TestFeature/TestPage";
+import UserDashboard from "./TestUsers/UserDashboard/Userdashboard";
 // import Homepage from "./TestUsers/Home";
-import ViewTest from "./TestUsers/ViewTest";
-import NotFoundPage from "./TestUsers/404Page";
-import { AuthProvider } from "./token";
+import ViewTest from "./TestUsers/UserDashboard/ViewTest";
+import ViewTestSchedule from "./TestUsers/UserDashboard/ViewTestSchedule";
+import NotFoundPage from "./TestUsers/Miscellaneous/404Page";
+import { AuthProvider } from "./TestUsers/Login/AuthContext";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/user/test/result/all" element={<SubmittedTests />} />
           <Route path="/user/test/result/:id" element={<ViewTest />} />
+          <Route
+            path="/user/schedule/view/:id"
+            element={<ViewTestSchedule />}
+          ></Route>
           <Route path="/" element={<LoginForm />} />
         </Routes>
       </Router>
